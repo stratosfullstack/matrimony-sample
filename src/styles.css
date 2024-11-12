@@ -3,4 +3,5 @@
 body {
     background-image: url("./assets/plant.jpg");
     background-size: cover;
+    background-color: black;
 }
