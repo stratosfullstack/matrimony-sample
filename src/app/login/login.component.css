@@ -24,6 +24,7 @@ body {
     /* Removed margin-left and margin-top for better responsiveness */
     margin: 0 auto; /* Centers the container */
     margin-top: 115px;
+    margin-bottom: 115px;
 }
 
 .login-container h2 {

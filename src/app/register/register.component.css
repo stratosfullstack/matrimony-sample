@@ -4,73 +4,134 @@ body {
 }
 
 .container {
-    max-width: 400px;
+    max-width: 600px;
     margin: 40px auto;
     padding: 20px;
     background-color: #fff;
-    border: 1px solid #ddd;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.form-title {
-    color: #ff3737;
+h2 {
     text-align: center;
     margin-bottom: 20px;
+    color: #333;
 }
 
-.form-group {
-    margin-bottom: 20px;
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
 }
 
-.form-group label {
+.col-6 {
+    flex-basis: 48%;
+    margin-bottom: 15px;
+}
+
+label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
     color: #666;
 }
 
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="tel"],
-.form-group select {
+input,
+select {
     width: 100%;
-    height: 40px;
-    padding: 10px;
+    height: 35px;
+    padding: 8px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.form-group select {
-    appearance: none;
-    background-color: #fff;
-    padding: 10px;
+input:focus,
+select:focus {
+    border: 1px solid #aaa;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.btn {
+button[type="submit"] {
+    width: 100%;
+    height: 35px;
     background-color: #ff3737;
     color: #fff;
-    padding: 10px 20px;
+    padding: 8px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.btn:hover {
+button[type="submit"]:hover {
     background-color: #ff6666;
 }
 
-.gender-group {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+/* Responsive design */
+
+@media (max-width: 768px) {
+    .container {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .col-6 {
+        flex-basis: 100%;
+        margin-bottom: 10px;
+    }
 }
 
-.gender-group label {
-    margin-right: 10px;
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .row {
+        margin-bottom: 10px;
+    }
+
+    input,
+    select {
+        height: 30px;
+        padding: 5px;
+    }
+
+    button[type="submit"] {
+        height: 30px;
+        padding: 5px;
+    }
 }
 
-.gender-group input[type="radio"] {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
+/* Additional styles for better responsive design */
+
+@media (max-width: 320px) {
+    .container {
+        width: 90%;
+        padding: 5px;
+    }
+
+    .row {
+        margin-bottom: 5px;
+    }
+
+    .col-6 {
+        margin-bottom: 5px;
+    }
+
+    input,
+    select {
+        height: 25px;
+        padding: 3px;
+    }
+
+    button[type="submit"] {
+        height: 25px;
+        padding: 3px;
+    }
 }

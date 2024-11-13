@@ -1,31 +1,28 @@
-
-
 <header>
-    <div class="logo">
-      <a href="#">Knanaya<span>Matrimony</span></a>
-    </div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </header>
+  <div class="logo">
+    <a href="#">Knanaya<span>Matrimony</span></a>
+  </div>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><button type="button" class="login-signup"><a routerLink="">Login</a></button></li>
+    </ul>
+  </nav>
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
 
-  <script>
-    // Toggle the nav-links when hamburger is clicked
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+<script>
+  // Toggle the nav-links when hamburger is clicked
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
 
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
-  </script>
-
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+</script>
