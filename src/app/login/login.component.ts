@@ -64,5 +64,4 @@ export class LoginComponent {
   // pswChange(event: any) {
   //   this.psw = event.target.value;
   // }
-
 }

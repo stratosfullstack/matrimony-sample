@@ -11,6 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { BannerSectionComponent } from './banner-section/banner-section.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +22,13 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
     FooterComponent,
     DashboardComponent,
     AdminDashboardComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    BannerSectionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     provideClientHydration()
