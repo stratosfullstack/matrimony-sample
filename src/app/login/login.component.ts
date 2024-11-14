@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -7,61 +8,27 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  email_id: string = "";
-  psw: string = "";
+  emailId: string = "";
+  password: string = "";
 
   userDetails: any[] = [
-    { user_id: 1000, email_id: "libin@gmail.com", password: "123", role:0 },
-    { user_id: 1001, email_id: "manu@gmail.com", password: "123" ,role:1 },
-    { user_id: 1002, email_id: "riya@gmail.com", password: "123", role:1 },
-    { user_id: 1003, email_id: "ninu@gmail.com", password: "123",role:1 },
-    { user_id: 1004, email_id: "jeena@gmail.com", password: "123", role:1 }
+    { user_name: "libinj", email_id: "libin@gmail.com", first_name: "Libin", last_name: "Jacob", gender: "Male", country: "Bahrain", password: "123", role: 0 },
+    { user_name: "manuj", email_id: "manu@gmail.com", first_name: "Manu", last_name: "Joseph", gender: "Male", country: "England", password: "123", role: 1 },
+    { user_name: "riyam", email_id: "riya@gmail.com", first_name: "Riya", last_name: "Mathew", gender: "Male", country: "Kuwait", password: "123", role: 1 },
+    { user_name: "ninua", email_id: "ninu@gmail.com", first_name: "Ninu", last_name: "Abraham", gender: "Male", country: "India", password: "100", role: 1 },
+    { user_name: "jeenas", email_id: "jeena@gmail.com", first_name: "Jeena", last_name: "Reji", gender: "Male", country: "India", password: "123", role: 1 }
   ];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private ds: DataService) { }
 
-    login() {
-      const user = this.userDetails.find(user => user.email_id === this.email_id);
-      if (user) {
-        if (user.password === this.psw) {
-          alert("Login successful");
-          this.router.navigateByUrl('dashboard')
-        } else {
-          alert("Incorrect password");
-        }
-      } else {
-        alert("Incorrect email ID");
-      }
+  login() {
+    const result = this.ds.login(this.emailId, this.password)
+    if (result) {
+      alert("Login Successful")
+      this.router.navigateByUrl("user")
     }
-
-    emailChange(event: any) {
-      this.email_id = event.target.value;
+    else {
+      alert("Incorrect User Credentials")
     }
-
-    pswChange(event: any) {
-      this.psw = event.target.value;
-    }
-
-  // login(a: any, b: any) { 
-  //   this.email_id = a.value
-  //   this.psw = b.value
-  //   const user = this.userDetails.find(user => user.email_id === this.email_id);
-  //   if (user) {
-  //     if (user.password === this.psw) {
-  //       alert("Login successful");
-  //     } else {
-  //       alert("Incorrect password");
-  //     }
-  //   } else {
-  //     alert("Incorrect email ID");
-  //   }
-  // }
-
-  // emailChange(event: any) {
-  //   this.email_id = event.target.value;
-  // }
-
-  // pswChange(event: any) {
-  //   this.psw = event.target.value;
-  // }
+  }
 }

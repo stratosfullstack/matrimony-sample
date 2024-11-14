@@ -4,13 +4,13 @@
     <form class="login-form">
         <div class="form-group">
             <label for="email">Email ID</label>
-            <input type="email" name="email" [(ngModel)]="email_id" id="email" placeholder="Enter your email" required>
+            <input type="email" name="email" [(ngModel)]="emailId" id="email" placeholder="Enter your email" required>
         </div>
 
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" name="password" [(ngModel)]="psw" id="password" placeholder="Enter your password"
-                required>
+            <input type="password" name="password" [(ngModel)]="password" id="password"
+                placeholder="Enter your password" required>
         </div>
 
         <button type="submit" (click)="login()" class="login-button">Login</button>
