@@ -25,8 +25,7 @@
                 <label for="country">Country</label>
                 <select id="country" name="country" [(ngModel)]="countryName" required>
                     <option value="">Select Country</option>
-                    <option value="USA">USA</option>
-                    <option value="India">INDIA</option>
+                    <option *ngFor="let country of countryNames" value="{{ country }}">{{ country }}</option>
                 </select>
             </div>
         </div>

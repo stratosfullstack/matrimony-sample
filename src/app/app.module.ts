@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { BannerSectionComponent } from './banner-section/banner-section.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { BannerSectionComponent } from './banner-section/banner-section.componen
     DashboardComponent,
     AdminDashboardComponent,
     UserDashboardComponent,
-    BannerSectionComponent
+    BannerSectionComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +32,8 @@ import { BannerSectionComponent } from './banner-section/banner-section.componen
     FormsModule,
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
