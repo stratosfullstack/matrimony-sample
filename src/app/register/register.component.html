@@ -1,61 +1,89 @@
 <app-header></app-header>
 <div class="container">
     <h2>Registration Form</h2>
-    <form>
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
         <div class="form-group">
             <div>
                 <label for="firstName">First Name</label>
-                <input type="text" id="firstName" name="firstName" [(ngModel)]="firstName" required>
+                <input formControlName="firstName" type="text" id="firstName">
+                <div *ngIf="registerForm.get('firstName')?.errors && registerForm.get('firstName')?.touched">
+                    <p class="text-danger">First name is required.</p>
+                </div>
             </div>
             <div>
                 <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" name="lastName" [(ngModel)]="lastName" required>
+                <input formControlName="lastName" type="text" id="lastName">
+                <div *ngIf="registerForm.get('lastName')?.errors && registerForm.get('lastName')?.touched">
+                    <p class="text-danger">Last name is required.</p>
+                </div>
             </div>
         </div>
         <div class="form-group">
             <div>
                 <label for="gender">Gender</label>
-                <select id="gender" name="gender" [(ngModel)]="gender" required>
+                <select formControlName="gender" id="gender">
                     <option value="">Select Gender</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
+                <div *ngIf="registerForm.get('gender')?.errors && registerForm.get('gender')?.touched">
+                    <p class="text-danger">Gender is required.</p>
+                </div>
             </div>
             <div>
                 <label for="country">Country</label>
-                <select id="country" name="country" [(ngModel)]="countryName" required>
+                <select formControlName="country" id="country">
                     <option value="">Select Country</option>
                     <option *ngFor="let country of countryNames" value="{{ country }}">{{ country }}</option>
                 </select>
+                <div *ngIf="registerForm.get('country')?.errors && registerForm.get('country')?.touched">
+                    <p class="text-danger">Country is required.</p>
+                </div>
             </div>
         </div>
         <div class="form-group">
             <div>
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" [(ngModel)]="emailId">
+                <input formControlName="email" type="email" id="email">
+                <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched">
+                    <p class="text-danger">Invalid email format.</p>
+                </div>
             </div>
             <div>
                 <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" [(ngModel)]="phoneNumber">
+                <input formControlName="phone" type="tel" id="phone">
+                <div *ngIf="registerForm.get('phone')?.errors && registerForm.get('phone')?.touched">
+                    <p class="text-danger">Phone number is required.</p>
+                </div>
             </div>
         </div>
         <div class="form-group">
             <div>
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" [(ngModel)]="userName">
+                <input formControlName="username" type="text" id="username">
+                <div *ngIf="registerForm.get('username')?.errors && registerForm.get('username')?.touched">
+                    <p class="text-danger">Username is required.</p>
+                </div>
             </div>
             <div>
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" [(ngModel)]="password">
+                <input formControlName="password" type="password" id="password">
+                <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched">
+                    <p class="text-danger">Password is required.</p>
+                </div>
             </div>
         </div>
         <div class="form-group">
             <div>
                 <label for="confirmPassword">Confirm Password</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword">
+                <input formControlName="confirmPassword" type="password" id="confirmPassword">
+                <div
+                    *ngIf="registerForm.get('confirmPassword')?.errors && registerForm.get('confirmPassword')?.touched">
+                    <p class="text-danger">Passwords do not match.</p>
+                </div>
             </div>
         </div>
-        <button (click)="register()" type="submit">Register</button>
+        <button type="submit" [disabled]="!registerForm.valid">Register</button>
     </form>
 </div>
 <app-footer></app-footer>

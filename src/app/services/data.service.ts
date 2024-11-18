@@ -24,13 +24,12 @@ export class DataService {
     userName: any,
     password: any
   ) {
-    // Check if email already exists
+  
     const existingUser = this.userDetails.find((user) => user.email_id === emailId);
 
     if (existingUser) {
       return false;
     } else {
-      // Add new user
       this.userDetails.push({
         user_name: userName,
         email_id: emailId,
@@ -39,7 +38,7 @@ export class DataService {
         gender: gender,
         country: countryName,
         password: password,
-        role: 1, // Default role
+        role: 1, 
       });
       console.log(this.userDetails);
 

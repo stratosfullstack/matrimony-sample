@@ -1,24 +1,32 @@
 <app-header></app-header>
 <div class="login-container">
-    <h2>Member Login</h2>
-    <form class="login-form">
-        <div class="form-group">
-            <label for="email">Email ID</label>
-            <input type="email" name="email" [(ngModel)]="emailId" id="email" placeholder="Enter your email" required>
-        </div>
+  <h2>Member Login</h2>
+  <form class="login-form" [formGroup]="loginForm">
+    <div class="form-group">
+      <label for="email">Email ID</label>
+      <input class="login-input" type="email" formControlName="email" id="email" placeholder="Enter your email">
+      <div *ngIf="this.loginForm.get('email')?.errors && this.loginForm.get('email')?.touched">
+        <p class="text-danger">Not a valid email</p>
+      </div>
+    </div>
 
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" name="password" [(ngModel)]="password" id="password"
-                placeholder="Enter your password" required>
-        </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <div class="input-group">
+        <input class="login-input" [type]="showPassword ? 'text' : 'password'" formControlName="password" id="password"
+          placeholder="Enter your password">
+        <span class="input-group-text password-toggle" (click)="togglePassword()">
+          <i class="fas" [ngClass]="{'fa-eye': showPassword, 'fa-eye-slash': !showPassword}"></i>
+        </span>
+      </div>
+    </div>
 
-        <button type="submit" (click)="login()" class="login-button">Login</button>
+    <button type="submit" (click)="login()" class="login-button">Login</button>
 
-        <div class="extra-links">
-            <a href="#" class="forgot-password">Forgot User?</a>
-            <a routerLink="register" class="register-link">New User ? Register Here</a>
-        </div>
-    </form>
+    <div class="extra-links">
+      <a href="#" class="forgot-password">Forgot User?</a>
+      <a routerLink="register" class="register-link">New User ? Register Here</a>
+    </div>
+  </form>
 </div>
 <app-footer></app-footer>

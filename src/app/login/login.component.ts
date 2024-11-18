@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,24 +9,27 @@ import { DataService } from '../services/data.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  emailId: string = "";
-  password: string = "";
 
-  userDetails: any[] = [
-    { user_name: "libinj", email_id: "libin@gmail.com", first_name: "Libin", last_name: "Jacob", gender: "Male", country: "Bahrain", password: "123", role: 0 },
-    { user_name: "manuj", email_id: "manu@gmail.com", first_name: "Manu", last_name: "Joseph", gender: "Male", country: "England", password: "123", role: 1 },
-    { user_name: "riyam", email_id: "riya@gmail.com", first_name: "Riya", last_name: "Mathew", gender: "Male", country: "Kuwait", password: "123", role: 1 },
-    { user_name: "ninua", email_id: "ninu@gmail.com", first_name: "Ninu", last_name: "Abraham", gender: "Male", country: "India", password: "100", role: 1 },
-    { user_name: "jeenas", email_id: "jeena@gmail.com", first_name: "Jeena", last_name: "Reji", gender: "Male", country: "India", password: "123", role: 1 }
-  ];
+  loginForm: FormGroup;
 
-  constructor(private router: Router, private ds: DataService) { }
+  constructor(private router: Router, private ds: DataService, private fb: FormBuilder) {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]]
+    });
+  }
+
+  showPassword = false;
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
 
   login() {
-    const result = this.ds.login(this.emailId, this.password)
+    const result = this.ds.login(this.loginForm.value.email, this.loginForm.value.password)
     if (result) {
       alert("Login Successful")
-      this.router.navigateByUrl("user")
+      this.router.navigateByUrl("dashboard")
     }
     else {
       alert("Incorrect User Credentials")

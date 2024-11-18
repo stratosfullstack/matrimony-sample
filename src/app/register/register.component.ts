@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -54,7 +55,22 @@ export class RegisterComponent {
     'Zambia', 'Zimbabwe'
   ];
 
-  constructor(private ds: DataService, private router :Router) { }
+  registerForm: FormGroup;
+
+  constructor(private router: Router, private ds: DataService, private fb: FormBuilder) {
+    this.registerForm = this.fb.group({
+      firstName: ['', [Validators.required, Validators.minLength(2)]],
+      lastName: ['', [Validators.required, Validators.minLength(2)]],
+      gender: ['', [Validators.required]],
+      country: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      username: ['', [Validators.required, Validators.minLength(5)]],
+      password: ['', [Validators.required, Validators.minLength(3), Validators.pattern('')]],
+      confirmPassword: ['', [Validators.required, Validators.minLength(3)]]
+    })
+  }
+
 
   register() {
     const result = this.ds.register(this.firstName, this.lastName, this.gender, this.countryName, this.emailId, this.userName, this.password)
