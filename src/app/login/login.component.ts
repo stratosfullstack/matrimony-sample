@@ -26,9 +26,16 @@ export class LoginComponent {
   }
 
   login() {
-    this.ds.login(this.loginForm.value.email, this.loginForm.value.password).subscribe((result:any)=>{
-      console.log(result.message);
-    })
-
+    this.ds.login(this.loginForm.value.email, this.loginForm.value.password).subscribe((result: any) => {
+      localStorage.setItem('currentEmailid',JSON.stringify(result.currentEmailid))
+      localStorage.setItem('currentUser',JSON.stringify(result.currentUser))
+      localStorage.setItem('token',JSON.stringify(result.token))
+      alert(result.message);
+      this.router.navigateByUrl("dashboard")
+    },
+      result => {
+        alert(result.error.message);
+      }
+    )
   }
 }

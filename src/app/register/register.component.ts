@@ -74,7 +74,12 @@ export class RegisterComponent {
         this.registerForm.value.password
       ).subscribe((result: any) => {
         alert(result.message)
-      })
+        this.router.navigateByUrl("")
+      },
+      result=>{
+        alert(result.error.message)
+      }
+    )
     }
     else {
       alert("Invalid Form")
