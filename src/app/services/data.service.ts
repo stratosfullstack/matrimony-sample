@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,7 +6,6 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
-  constructor() { }
 
   userDetails: any[] = [
     { user_name: "libinj", email_id: "libin@gmail.com", first_name: "Libin", last_name: "Jacob", gender: "Male", country: "Bahrain", password: "123", role: 0 },
@@ -15,47 +15,37 @@ export class DataService {
     { user_name: "jeenas", email_id: "jeena@gmail.com", first_name: "Jeena", last_name: "Reji", gender: "Male", country: "India", password: "123", role: 1 }
   ];
 
+  constructor(private http: HttpClient) { }
+
   register(
     firstName: any,
     lastName: any,
     gender: any,
     countryName: any,
     emailId: any,
+    phone: any,
     userName: any,
     password: any
   ) {
-  
-    const existingUser = this.userDetails.find((user) => user.email_id === emailId);
-
-    if (existingUser) {
-      return false;
-    } else {
-      this.userDetails.push({
-        user_name: userName,
-        email_id: emailId,
-        first_name: firstName,
-        last_name: lastName,
-        gender: gender,
-        country: countryName,
-        password: password,
-        role: 1, 
-      });
-      console.log(this.userDetails);
-
-      return true;
+    const data = {
+      firstname: firstName,
+      lastname: lastName,
+      gender,
+      country: countryName,
+      email: emailId,
+      phone,
+      username: userName,
+      password,
+      role: 1
     }
+    return this.http.post("http://localhost:3000/register", data)
   }
 
   login(emailId: any, password: any) {
-    const user = this.userDetails.find(user => user.email_id === emailId);
-    if (user) {
-      if (user.password === password) {
-        return true;
-      } else {
-        return false;
-      }
-    } else {
-      return false;
+    const data = {
+      email:emailId,
+      password
     }
+    return this.http.post("http://localhost:3000/login", data)
   }
 }

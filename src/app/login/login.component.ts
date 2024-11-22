@@ -26,13 +26,9 @@ export class LoginComponent {
   }
 
   login() {
-    const result = this.ds.login(this.loginForm.value.email, this.loginForm.value.password)
-    if (result) {
-      alert("Login Successful")
-      this.router.navigateByUrl("dashboard")
-    }
-    else {
-      alert("Incorrect User Credentials")
-    }
+    this.ds.login(this.loginForm.value.email, this.loginForm.value.password).subscribe((result:any)=>{
+      console.log(result.message);
+    })
+
   }
 }

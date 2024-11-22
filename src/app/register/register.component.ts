@@ -9,16 +9,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-
-  emailId: string = ""
-  password: string = ""
-  firstName: string = ""
-  lastName: string = ""
-  gender: string = ""
-  countryName: string = ""
-  phoneNumber: string = ""
-  userName: string = ""
-  confirmPassword: string = ""
   countryNames = [
     'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda',
     'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas',
@@ -71,16 +61,23 @@ export class RegisterComponent {
     })
   }
 
-
   register() {
-    const result = this.ds.register(this.firstName, this.lastName, this.gender, this.countryName, this.emailId, this.userName, this.password)
-    if (result) {
-      alert("Registration Success")
-      this.router.navigateByUrl('')
+    if (this.registerForm.valid) {
+      this.ds.register(
+        this.registerForm.value.firstName,
+        this.registerForm.value.lastName,
+        this.registerForm.value.gender,
+        this.registerForm.value.country,
+        this.registerForm.value.email,
+        this.registerForm.value.phone,
+        this.registerForm.value.username,
+        this.registerForm.value.password
+      ).subscribe((result: any) => {
+        alert(result.message)
+      })
     }
     else {
-      alert("User Already Exists")
+      alert("Invalid Form")
     }
   }
-
 }

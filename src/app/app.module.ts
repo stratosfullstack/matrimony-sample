@@ -13,6 +13,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { BannerSectionComponent } from './banner-section/banner-section.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { CreateProfileComponent } from './create-profile/create-profile.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,15 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     DashboardComponent,
     AdminDashboardComponent,
     UserDashboardComponent,
-    BannerSectionComponent
+    BannerSectionComponent,
+    CreateProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration(),
