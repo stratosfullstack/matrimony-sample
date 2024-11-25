@@ -51,4 +51,15 @@ export class DataService {
     }
     return this.http.post("http://localhost:3000/login", data)
   }
+
+  createProfile( firstName: any,
+    lastName: any,
+    gender: any,
+    countryName: any,
+    emailId: any,
+    phone: any,
+    userName: any
+  ){
+    return this.http.post("http://localhost:3000/create-profile", phone)
+  }
 }

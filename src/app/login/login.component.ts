@@ -31,7 +31,7 @@ export class LoginComponent {
       localStorage.setItem('currentUser',JSON.stringify(result.currentUser))
       localStorage.setItem('token',JSON.stringify(result.token))
       alert(result.message);
-      this.router.navigateByUrl("dashboard")
+      this.router.navigateByUrl("create-profile")
     },
       result => {
         alert(result.error.message);
