@@ -14,7 +14,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { BannerSectionComponent } from './banner-section/banner-section.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [
     provideClientHydration(),
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })
