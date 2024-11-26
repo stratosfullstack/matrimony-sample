@@ -45,8 +45,7 @@ export class CreateProfileComponent {
     'Zambia', 'Zimbabwe'
   ];
 
-   occupations = [
-    // Arts and Design
+  occupations = [
     "Actor",
     "Actress",
     "Architect",
@@ -62,8 +61,6 @@ export class CreateProfileComponent {
     "Photographer",
     "Sculptor",
     "Writer",
-  
-    // Business and Finance
     "Accountant",
     "Auditor",
     "Bank Manager",
@@ -83,8 +80,6 @@ export class CreateProfileComponent {
     "Sales Manager",
     "Stockbroker",
     "Trader",
-  
-    // Education
     "Academic Advisor",
     "Admissions Counselor",
     "Assistant Professor",
@@ -106,8 +101,6 @@ export class CreateProfileComponent {
     "Teacher",
     "Tutor",
     "University Administrator",
-  
-    // Engineering
     "Aerospace Engineer",
     "Biomedical Engineer",
     "Chemical Engineer",
@@ -121,8 +114,6 @@ export class CreateProfileComponent {
     "Nuclear Engineer",
     "Petroleum Engineer",
     "Software Engineer",
-  
-    // Healthcare
     "Anesthesiologist",
     "Cardiologist",
     "Chiropractor",
@@ -162,8 +153,6 @@ export class CreateProfileComponent {
     "Surgeon",
     "Urologist",
     "Veterinarian",
-  
-    // Hospitality and Tourism
     "Airline Pilot",
     "Airline Steward/Stewardess",
     "Bellhop",
@@ -179,8 +168,6 @@ export class CreateProfileComponent {
     "Tour Guide",
     "Travel Agent",
     "Waiter/Waitress",
-  
-    // IT and Technology
     "Artificial Intelligence Engineer",
     "Cloud Computing Professional",
     "Cybersecurity Specialist",
@@ -201,8 +188,6 @@ export class CreateProfileComponent {
     "System Administrator",
     "UX/UI Designer",
     "Web Developer",
-  
-    // Law and Justice
     "Bailiff",
     "Court Reporter",
     "Judge",
@@ -214,8 +199,6 @@ export class CreateProfileComponent {
     "Probation Officer",
     "Prosecutor",
     "Sheriff",
-  
-    // Manufacturing and Production
     "Assembly Line Worker",
     "CNC Machinist",
     "Electrician",
@@ -232,7 +215,7 @@ export class CreateProfileComponent {
     "Quality Control Inspector",
     "Robotics Engineer",
     "Supply Chain Manager",
-    "Welder" ];
+    "Welder"];
 
   createProfileForm: FormGroup;
 
@@ -247,19 +230,26 @@ export class CreateProfileComponent {
     })
   }
 
+  selectedImage: any;
+
+  onImageSelected(event:any) {
+    this.selectedImage = event.target.files[0];
+  }
+
   createProfile() {
     if (this.createProfileForm.valid) {
-      this.ds.createProfile(
-        this.createProfileForm.value.name,
-        this.createProfileForm.value.age,
-        this.createProfileForm.value.gender,
-        this.createProfileForm.value.country,
-        this.createProfileForm.value.email,
-        this.createProfileForm.value.phone,
-        this.createProfileForm.value.occupation,
-      ).subscribe((result: any) => {
+      const formData = new FormData();
+      formData.append('name', this.createProfileForm.value.name);
+      formData.append('age', this.createProfileForm.value.age);
+      formData.append('gender', this.createProfileForm.value.gender);
+      formData.append('country', this.createProfileForm.value.country);
+      formData.append('phone', this.createProfileForm.value.phone);
+      formData.append('occupation', this.createProfileForm.value.occupation);
+      formData.append('image', this.selectedImage);
+
+      this.ds.createProfile(formData).subscribe((result: any) => {
         alert(result.message)
-        this.router.navigateByUrl("dashboard")
+        this.router.navigateByUrl("")
       },
         result => {
           alert(result.error.message)

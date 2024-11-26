@@ -38,9 +38,11 @@
         </div>
         <div class="form-group">
             <label for="profile-picture">Profile Picture:</label>
-            <input type="file" id="profile-picture" name="profile-picture" required>
+            <input type="file" id="profile-picture" name="profile-picture" (change)="onImageSelected($event)" required>
         </div>
-        <button type="submit" id="submit-btn">Submit</button>
+        <div class="form-group">
+            <button type="submit" id="submit-btn">Create Profile</button>
+        </div>
     </form>
 </div>
 <app-footer></app-footer>
