@@ -11,7 +11,7 @@
                     <!-- Dashboard Stats -->
                     <div class="dashboard-stats">
                         <div class="stat-item">
-                            <div class="stat-number">1,234</div>
+                            <div class="stat-number">{{ profileCount }}</div>
                             <div class="stat-label">Active Profiles</div>
                         </div>
                         <div class="stat-item">
@@ -26,47 +26,14 @@
                 </div>
             </div>
             <div class="card-grid">
+
                 <!-- Profile Card 1 -->
-                <div class="profile-card">
-                    <img src="https://cdn.pixabay.com/photo/2015/05/01/19/40/girl-748932_1280.jpg" alt="Profile Photo" class="profile-image">
+                <div class="profile-card" *ngFor="let profile of profiles">
+                    <img [src]="getImageUrl(profile.imagePath)" alt="Profile Photo" class="profile-image">
                     <div class="profile-info">
-                        <div class="profile-name">Sarah Johnson</div>
-                        <div class="profile-details">Age: 28</div>
-                        <div class="profile-details">Place: New York</div>
-                        <button class="view-button">View Details</button>
-                    </div>
-                </div>
-
-                <!-- Profile Card 2 -->
-                <div class="profile-card">
-                    <img src="https://cdn.pixabay.com/photo/2024/11/05/20/59/artistic-9176859_1280.jpg" alt="Profile Photo" class="profile-image">
-                    <div class="profile-info">
-                        <div class="profile-name">Michael Chen</div>
-                        <div class="profile-details">Age: 32</div>
-                        <div class="profile-details">Place: San Francisco</div>
-                        <button class="view-button">View Details</button>
-                    </div>
-                </div>
-
-                <!-- Profile Card 3 -->
-                <div class="profile-card">
-                    <img src="https://cdn.pixabay.com/photo/2022/09/08/15/16/cute-7441224_1280.jpg" alt="Profile Photo"
-                        class="profile-image">
-                    <div class="profile-info">
-                        <div class="profile-name">Emma Davis</div>
-                        <div class="profile-details">Age: 26</div>
-                        <div class="profile-details">Place: London</div>
-                        <button class="view-button">View Details</button>
-                    </div>
-                </div>
-
-                <!-- Profile Card 4 -->
-                <div class="profile-card">
-                    <img src="https://cdn.pixabay.com/photo/2016/03/23/04/01/woman-1274056_1280.jpg" alt="Profile Photo" class="profile-image">
-                    <div class="profile-info">
-                        <div class="profile-name">James Wilson</div>
-                        <div class="profile-details">Age: 30</div>
-                        <div class="profile-details">Place: Toronto</div>
+                        <div class="profile-name">{{ profile.name }}</div>
+                        <div class="profile-details">Age : {{ profile.age }}</div>
+                        <div class="profile-details">Place : {{ profile.country }}</div>
                         <button class="view-button">View Details</button>
                     </div>
                 </div>

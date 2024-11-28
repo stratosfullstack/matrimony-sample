@@ -232,7 +232,13 @@ export class CreateProfileComponent {
 
   selectedImage: any;
 
-  onImageSelected(event:any) {
+  storedData: string | null = typeof localStorage !== 'undefined'
+    ? JSON.parse(localStorage.getItem('currentEmailid') ?? 'null')
+    : null;
+
+  emailId = this.storedData;
+
+  onImageSelected(event: any) {
     this.selectedImage = event.target.files[0];
   }
 
@@ -245,6 +251,7 @@ export class CreateProfileComponent {
       formData.append('country', this.createProfileForm.value.country);
       formData.append('phone', this.createProfileForm.value.phone);
       formData.append('occupation', this.createProfileForm.value.occupation);
+      formData.append('email', this.emailId ?? '');
       formData.append('image', this.selectedImage);
 
       this.ds.createProfile(formData).subscribe((result: any) => {

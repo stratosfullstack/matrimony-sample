@@ -69,3 +69,7 @@ body {
 #submit-btn:hover {
     background-color: #cc0000;
 }
+
+input[type="text"] {
+    text-transform: uppercase;
+  }
