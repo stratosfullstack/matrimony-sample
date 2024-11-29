@@ -1,29 +1,99 @@
+/* Global Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-    background-color: #f3f4f6;
+html, body {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
 }
 
+/* Login Container Layout */
 .login-container {
-    width: 90%;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Left Side - Background Image */
+.login-image {
+    flex: 1;
+    background: url('https://cdn.pixabay.com/photo/2015/07/15/07/06/bride-groom-845728_1280.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+.login-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Right Side - Login Form */
+.login-form {
+    flex: 1;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+    position: relative;
+}
+
+.login-content {
     max-width: 400px;
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    width: 100%;
     margin: 0 auto;
-    margin-top: 115px;
-    margin-bottom: 115px;
+}
+
+.login-header h1 {
+    color: #d32f2f;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.login-header p {
+    color: #757575;
+    font-size: 1rem;
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    outline: none !important; /* This removes the default focus outline */
+    box-shadow: none !important; /* Removes any additional focus highlights */
+}
+
+.form-control:focus {
+    border-color: #e0e0e0; /* Keep original border color on focus */
+    outline: none !important; /* Explicitly remove outline again */
+    box-shadow: none !important; /* Remove any browser-specific focus effects */
+}
+
+/* Password Input Group */
+.password-group {
+    position: relative;
+}
+
+.input-wrapper {
+    position: relative;
 }
 
 .password-toggle {
@@ -32,151 +102,226 @@ body {
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
+    color: #757575;
+    z-index: 10;
 }
 
-.input-group {
-    position: relative;
-}
-
-.input-group-text {
-    background-color: #fff;
+/* Login Button */
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background-color: #d32f2f;
+    color: white;
     border: none;
-    padding: 0;
-}
-
-.login-container h2 {
-    color: #333;
-}
-
-.login-form .form-group {
-    margin-bottom: 1.5rem;
-    text-align: left;
-    position: relative;
-}
-
-.login-form label {
-    font-size: 0.9rem;
-    color: #555;
-}
-
-/* .login-form input[type="email"],
-.login-form input[type="password"] {
-    width: 100%;
-    padding: 0.8rem;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-top: 0.3rem;
-    outline: none;
-    padding-right: 30px;
-}
-
-.login-form input[type="email"]:focus,
-.login-form input[type="password"]:focus {
-    border-color: #a3282e;
-} */
-
-.login-form .login-input {
-    width: 100%;
-    padding: 0.8rem;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-top: 0.3rem;
-    outline: none;
-    padding-right: 30px;
-}
-
-.login-form .login-input:focus {
-    border-color: #a3282e;
-}
-
-.login-button {
-    width: 100%;
-    padding: 0.8rem;
-    font-size: 1rem;
+    border-radius: 8px;
     font-weight: bold;
-    color: #fff;
-    background-color: #ff3737;
-    border: none;
-    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 1rem;
 }
 
-.login-button:hover {
-    background-color: #ff6666;
+.btn-login:hover {
+    background-color: #b71c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+
+/* Extra Links */
 .extra-links {
-    margin-top: 1rem;
     display: flex;
     justify-content: space-between;
+    margin-top: 15px;
     flex-wrap: wrap;
-    gap: 0.5rem;
 }
 
 .extra-links a {
-    color: #007bff;
-    font-size: 0.9rem;
+    color: #d32f2f;
     text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+    cursor: pointer;
 }
 
 .extra-links a:hover {
     text-decoration: underline;
+    color: #b71c1c;
 }
 
-/* Mobile Responsive Styles */
+/* Error Message */
+.error-message {
+    color: #d32f2f;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .login-container {
+        flex-direction: column;
+    }
+    
+    .login-image {
+        flex: 0 0 250px;
+    }
+}
+
 @media (max-width: 768px) {
     .login-container {
-        width: 95%;
-        padding: 1.5rem;
-        margin: 1rem auto;
+        height: auto;
     }
-
-    .login-container h2 {
-        font-size: 1.5rem;
+    
+    .login-image {
+        display: none;
     }
-
-    .login-form label {
-        font-size: 0.9rem;
+    
+    .login-form {
+        padding: 30px;
     }
-
-    .login-form input[type="email"],
-    .login-form input[type="password"] .login-form input[type="text"] {
-        padding: 0.7rem;
-        font-size: 1rem;
-    }
-
-    .login-button {
-        padding: 0.7rem;
+    
+    .login-content {
+        max-width: 100%;
     }
 }
 
-/* Small Mobile Devices */
 @media (max-width: 480px) {
-    .login-container {
-        width: 100%;
-        padding: 1rem;
-        border-radius: 0;
+    .login-form {
+        padding: 20px;
     }
-
-    .login-form label {
-        font-size: 0.8rem;
+    
+    .login-header h1 {
+        font-size: 2rem;
     }
-
+    
     .extra-links {
         flex-direction: column;
         align-items: center;
-        gap: 0.8rem;
+        gap: 10px;
     }
+}
 
-    .extra-links a {
-        font-size: 0.85rem;
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
     }
-
-    .login-button {
-        font-size: 0.9rem;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
 
+/* Accessibility Enhancements */
+.form-control:focus {
+    outline: 2px solid #d32f2f;
+    outline-offset: 2px;
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+    }
+    
+    .login-form {
+        background-color: #1e1e1e;
+    }
+    
+    .login-header h1 {
+        color: #ff6b6b;
+    }
+    
+    .form-control {
+        background-color: #2c2c2c;
+        border-color: #404040;
+        color: #ffffff;
+    }
+    
+    .form-control:focus {
+        background-color: #3c3c3c;
+        border-color: #ff6b6b;
+    }
+}
+
+.intro-title {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.intro-description {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+
+/* Site Header Styling */
+.site-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.site-logo {
+    width: 80px;
+    height: 80px;
+    background-color: #d32f2f;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    box-shadow: 0 4px 6px rgba(211, 47, 47, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+.logo-text {
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+}
+
+.site-title {
+    color: #d32f2f;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-family: 'Playfair Display', serif;
+}
+
+.site-caption {
+    color: #666;
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: italic;
+    max-width: 400px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Optional: Add a subtle decorative element */
+.site-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(211, 47, 47, 0.05) 0%, transparent 70%);
+    z-index: 0;
 }

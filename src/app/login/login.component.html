@@ -1,33 +1,45 @@
-<app-header></app-header>
+<!-- login.component.html -->
 <div class="login-container">
-  <h2>Member Login</h2>
-  <form class="login-form" [formGroup]="loginForm">
-    <div class="form-group">
-      <label for="email">Email ID</label>
-      <input class="login-input" type="email" formControlName="email" id="email" placeholder="Enter your email">
-      <div *ngIf="this.loginForm.get('email')?.errors && this.loginForm.get('email')?.touched">
-        <p class="text-danger">Not a valid email</p>
+  <div class="login-image"></div>
+  <div class="login-form">
+    <div class="login-content">
+      <div class="site-header">
+        <div class="site-logo">
+          <span class="logo-text">K</span>
+        </div>
+        <h1 class="site-title">Knanaya Matrimony</h1>
+        <p class="site-caption">Connecting Hearts, Preserving Traditions</p>
+        <p class="intro-description">
+          Welcome back! Please enter your credentials to access your account securely.
+        </p>
       </div>
-    </div>
 
-    <div class="form-group">
-      <label for="password">Password</label>
-      <div class="input-group">
-        <input class="login-input" [type]="showPassword ? 'text' : 'password'" formControlName="password" id="password"
-          placeholder="Enter your password">
-        <span class="input-group-text password-toggle" (click)="togglePassword()">
-          <i class="fas" [ngClass]="{'fa-eye': showPassword, 'fa-eye-slash': !showPassword}"></i>
-        </span>
-      </div>
-    </div>
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="form-group">
+          <input type="email" class="form-control" formControlName="email" placeholder="Email Address" required>
+          <div *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched" class="error-message">
+            Not a valid email
+          </div>
+        </div>
 
-    <button type="submit" (click)="login()" class="login-button">Login</button>
+        <div class="form-group password-group">
+          <div class="input-wrapper">
+            <input [type]="showPassword ? 'text' : 'password'" class="form-control" formControlName="password"
+              placeholder="Password" required>
+            <span class="password-toggle" (click)="togglePassword()">
+              <i class="fas" [ngClass]="{'fa-eye': showPassword, 'fa-eye-slash': !showPassword}"></i>
+            </span>
+          </div>
+        </div>
 
-    <div class="extra-links">
-      <a href="#" class="forgot-password">Forgot User?</a>
-      <a routerLink="register" class="register-link">New User ? Register Here</a>
+        <button type="submit" class="btn-login" [disabled]="!loginForm.valid">Login</button>
+
+        <div class="extra-links">
+          <a href="#" class="forgot-password">Forgot User?</a>
+          <a routerLink="register" class="register-link">New User? Register Here</a>
+        </div>
+      </form>
     </div>
-    <!-- hidden field  implement -->
-  </form>
+  </div>
 </div>
 <app-footer></app-footer>

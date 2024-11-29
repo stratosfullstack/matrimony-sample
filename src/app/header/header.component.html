@@ -7,7 +7,7 @@
       <li><a style="text-decoration: none;" href="#">Home</a></li>
       <li><a style="text-decoration: none;" href="#">About</a></li>
       <li><a style="text-decoration: none;" href="#">Services</a></li>
-      <li><a routerLink=""><button type="button" class="login-signup">Login</button></a></li>
+      <li><button (click)="logout()" type="button" class="login-signup">Logout</button></li>
     </ul>
   </nav>
   <div class="hamburger">
@@ -18,10 +18,8 @@
 </header>
 
 <script>
-  // Toggle the nav-links when hamburger is clicked
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
-
   hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('open');
   });

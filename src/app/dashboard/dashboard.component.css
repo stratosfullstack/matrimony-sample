@@ -71,7 +71,7 @@ body {
     background-color: #f8f9fa;
     padding: clamp(15px, 2vw, 25px);
     border-radius: 8px;
-    border-left: 4px solid #ff3333;
+    border-left: 4px solid #d32f2f;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -117,7 +117,7 @@ body {
     .stat-item {
         text-align: center;
         border-left: none;
-        border-top: 4px solid #ff3333;
+        border-top: 4px solid #d32f2f;
     }
 }
 
@@ -221,7 +221,7 @@ body {
 
 .view-button {
     width: 100%;
-    background-color: #ff3333;
+    background-color: #d32f2f;
     color: white;
     border: none;
     padding: 10px;

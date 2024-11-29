@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { Router } from '@angular/router';
 
 interface Profile {
   _id: string;
@@ -19,9 +20,14 @@ export class DashboardComponent {
   profiles: Profile[] = [];
   profileCount: any;
 
-  constructor(private ds: DataService) { }
+  constructor(private ds: DataService, private router:Router) { }
 
   ngOnInit(): void {
+
+    if(!localStorage.getItem('token')){
+      alert('Please login first')
+      this.router.navigateByUrl('')
+    }
     
     this.ds.getProfiles().subscribe((result: any) => {
       this.profiles = result.data;
