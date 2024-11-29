@@ -20,15 +20,15 @@ export class DashboardComponent {
   profiles: Profile[] = [];
   profileCount: any;
 
-  constructor(private ds: DataService, private router:Router) { }
+  constructor(private ds: DataService, private router: Router) { }
 
   ngOnInit(): void {
 
-    if(!localStorage.getItem('token')){
-      alert('Please login first')
-      this.router.navigateByUrl('')
+    if (typeof localStorage !== 'undefined' && !localStorage.getItem('token')) {
+      alert('Please login first');
+      this.router.navigateByUrl('');
     }
-    
+
     this.ds.getProfiles().subscribe((result: any) => {
       this.profiles = result.data;
     },
