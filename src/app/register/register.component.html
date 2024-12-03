@@ -12,18 +12,22 @@
 
             <form [formGroup]="registerForm" (ngSubmit)="register()">
                 <div class="form-group">
-                    <input type="text" class="form-control" formControlName="firstName" placeholder="First Name"
-                        required>
-                    <div *ngIf="registerForm.get('firstName')?.errors && registerForm.get('firstName')?.touched"
-                        class="error-message">
-                        First name is required.
-                    </div>
+                    <select class="form-control" id="gender" formControlName="gender">
+                        <option value="">Looking for </option>
+                        <option value="Male">Bride</option>
+                        <option value="Female">Groom</option>
+                    </select>
+                    <div *ngIf="registerForm.get('gender')?.errors && registerForm.get('gender')?.touched"
+                    class="error-message">
+                    Mandatory.
+                </div>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" formControlName="lastName" placeholder="Last Name" required>
-                    <div *ngIf="registerForm.get('lastName')?.errors && registerForm.get('lastName')?.touched"
+                    <input type="text" class="form-control" formControlName="name" placeholder="Name"
+                        required>
+                    <div *ngIf="registerForm.get('name')?.errors && registerForm.get('name')?.touched"
                         class="error-message">
-                        Last name is required.
+                        Name is required.
                     </div>
                 </div>
                 <div class="form-group">

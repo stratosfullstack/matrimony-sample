@@ -30,11 +30,18 @@ export class LoginComponent {
       localStorage.setItem('currentEmailid', JSON.stringify(result.currentEmailid))
       localStorage.setItem('currentUser', JSON.stringify(result.currentUser))
       localStorage.setItem('token', JSON.stringify(result.token))
+      localStorage.setItem('role', JSON.stringify(result.role))
+      localStorage.setItem('gender', JSON.stringify(result.gender))
       alert(result.message);
-      if (result.profile === 1) {
-        this.router.navigateByUrl("dashboard")
-      } else {
-        this.router.navigateByUrl("create-profile")
+      if (result.role === 1) {
+        this.router.navigateByUrl("admin")
+      } else if (result.role === 0) {
+        if (result.profile === 1) {
+          this.router.navigateByUrl("dashboard")
+        }
+        else {
+          this.router.navigateByUrl("create-profile")
+        }
       }
     },
       result => {

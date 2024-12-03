@@ -1,1 +1,42 @@
-<p>admin-dashboard works!</p>
+<app-header></app-header>
+<div class="dashboard">
+    <div class="dashboard-header">
+        <h1>Matrimony Profile Approval</h1>
+        <span>Total Profiles: 2</span>
+    </div>
+
+    <table class="profiles-table">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Profile Photo</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th>Place</th>
+                <th>Phone Number</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-row" *ngFor="let profile of profiles">
+                <td>1</td>
+                <td>
+                    <img [src]="getImageUrl(profile.imagePath)" alt="Profile" class="profile-photo">
+                </td>
+                <td>{{ profile.name }}</td>
+                <td>Male</td>
+                <td>28</td>
+                <td>{{ profile.country }}</td>
+                <td>+91 9876543210</td>
+                <td>
+                    <div class="action-buttons">
+                        <button class="btn btn-approve">Approve</button>
+                        <button class="btn btn-disapprove">Disapprove</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<app-footer></app-footer>

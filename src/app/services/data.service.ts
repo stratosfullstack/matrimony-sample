@@ -11,16 +11,16 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   register(
-    firstName: any,
-    lastName: any,
+    gender:any,
+    name: any,
     emailId: any,
     phone: any,
     userName: any,
     password: any
   ) {
     const data = {
-      firstname: firstName,
-      lastname: lastName,
+      gender,
+      name,
       email: emailId,
       phone,
       username: userName,
@@ -54,10 +54,18 @@ export class DataService {
     );
   }
 
+  getProfilesUser(gender: string) {
+    return this.http.get(`http://localhost:3000/get-profiles-user?gender=${gender}`).pipe(
+      catchError((error: any) => {
+        console.error(error);
+        return throwError(error);
+      })
+    );
+  }
+
   getImageUrl(imagePath: string): string {
     return `http://localhost:3000/images/${imagePath.split('\\').pop()}`;
   }
-
 
   getProfileCount(): Observable<any> {
     return this.http.get("http://localhost:3000/get-profile-count").pipe(

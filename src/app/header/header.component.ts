@@ -16,6 +16,8 @@ export class HeaderComponent {
     localStorage?.removeItem('currentEmailid');
     localStorage?.removeItem('currentUser');
     localStorage?.removeItem('token');
+    localStorage?.removeItem('role');
+    localStorage?.removeItem('gender');
     this.router.navigateByUrl("");
   }
 }

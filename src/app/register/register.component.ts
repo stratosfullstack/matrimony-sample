@@ -14,8 +14,8 @@ export class RegisterComponent {
 
   constructor(private router: Router, private ds: DataService, private fb: FormBuilder) {
     this.registerForm = this.fb.group({
-      firstName: ['', [Validators.required, Validators.minLength(2)]],
-      lastName: ['', [Validators.required, Validators.minLength(2)]],
+      gender: ['', [Validators.required]],
+      name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       username: ['', [Validators.required, Validators.minLength(5)]],
@@ -27,8 +27,8 @@ export class RegisterComponent {
   register() {
     if (this.registerForm.valid) {
       this.ds.register(
-        this.registerForm.value.firstName,
-        this.registerForm.value.lastName,
+        this.registerForm.value.gender,
+        this.registerForm.value.name,
         this.registerForm.value.email,
         this.registerForm.value.phone,
         this.registerForm.value.username,
