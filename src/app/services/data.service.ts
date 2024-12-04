@@ -54,6 +54,14 @@ export class DataService {
     );
   }
 
+  getImageUrl(imagePath: string): string {
+    return `http://localhost:3000/images/${imagePath.split('\\').pop()}`;
+  }
+
+  downloadPdf(pdfPath: string) {
+    return this.http.get(`http://localhost:3000/download-pdf/${pdfPath}`, { responseType: 'blob' });
+  }
+
   getProfilesUser(gender: string) {
     return this.http.get(`http://localhost:3000/get-profiles-user?gender=${gender}`).pipe(
       catchError((error: any) => {
@@ -61,10 +69,6 @@ export class DataService {
         return throwError(error);
       })
     );
-  }
-
-  getImageUrl(imagePath: string): string {
-    return `http://localhost:3000/images/${imagePath.split('\\').pop()}`;
   }
 
   getProfileCount(): Observable<any> {

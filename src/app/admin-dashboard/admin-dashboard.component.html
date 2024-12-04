@@ -4,7 +4,6 @@
         <h1>Matrimony Profile Approval</h1>
         <span>Total Profiles: 2</span>
     </div>
-
     <table class="profiles-table">
         <thead>
             <tr>
@@ -15,6 +14,7 @@
                 <th>Age</th>
                 <th>Place</th>
                 <th>Phone Number</th>
+                <th>Verification File</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -29,6 +29,11 @@
                 <td>28</td>
                 <td>{{ profile.country }}</td>
                 <td>+91 9876543210</td>
+                <td>
+                    <button class="btn btn-download" (click)="downloadPdf(profile.pdfPath)">
+                        <i class="download-icon"></i> Download
+                    </button>
+                </td>
                 <td>
                     <div class="action-buttons">
                         <button class="btn btn-approve">Approve</button>

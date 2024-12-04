@@ -8,6 +8,7 @@ interface Profile {
   age: number;
   country: string;
   imagePath: string;
+  pdfPath: string;
 }
 
 @Component({
@@ -49,6 +50,26 @@ export class AdminDashboardComponent {
   getImageUrl(imagePath: string): string {
     return this.ds.getImageUrl(imagePath);
   }
+
+  downloadPdf(pdfPath: string) {
+    console.log('pdfPath:', pdfPath);
+    const pdfName = pdfPath.split('\\').pop(); // Remove uploads/ directory
+    if (pdfName) {
+      this.ds.downloadPdf(pdfName).subscribe((response: any) => {
+        const blob = new Blob([response], { type: 'application/pdf' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = pdfName;
+        a.click();
+      }, (error: any) => {
+        console.error(error);
+      });
+    } else {
+      console.error('pdfName is undefined');
+    }
+  }
+
 }
 
 

@@ -14,8 +14,8 @@
             <label for="gender">Gender:</label>
             <select id="gender" formControlName="gender">
                 <option value="">Select</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
+                <option value="male">male</option>
+                <option value="female">female</option>
             </select>
         </div>
         <div class="form-group">
@@ -40,6 +40,10 @@
             <label for="profile-picture">Profile Picture:</label>
             <input type="file" id="profile-picture" name="profile-picture" (change)="onImageSelected($event)" required>
         </div>
+        <div class="form-group">
+            <label for="pdf">PDF:</label>
+            <input type="file" id="pdf" name="pdf" (change)="onPdfSelected($event)" accept=".pdf">
+          </div>
         <div class="form-group">
             <button type="submit" id="submit-btn">Create Profile</button>
         </div>

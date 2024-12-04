@@ -63,6 +63,18 @@
         object-fit: cover;
     }
 
+    .btn-download {
+        background-color: #28a745;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .btn-download:hover {
+        background-color: #218838;
+    }
+
     .action-buttons {
         display: flex;
         gap: 10px;

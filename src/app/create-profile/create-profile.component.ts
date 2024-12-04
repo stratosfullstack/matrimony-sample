@@ -231,6 +231,7 @@ export class CreateProfileComponent {
   }
 
   selectedImage: any;
+  selectedPdf:any;
 
   storedData: string | null = typeof localStorage !== 'undefined'
     ? JSON.parse(localStorage.getItem('currentEmailid') ?? 'null')
@@ -240,6 +241,10 @@ export class CreateProfileComponent {
 
   onImageSelected(event: any) {
     this.selectedImage = event.target.files[0];
+  }
+
+  onPdfSelected(event: any) {
+    this.selectedPdf = event.target.files[0];
   }
 
   createProfile() {
@@ -253,6 +258,7 @@ export class CreateProfileComponent {
       formData.append('occupation', this.createProfileForm.value.occupation);
       formData.append('email', this.emailId ?? '');
       formData.append('image', this.selectedImage);
+      formData.append('pdf', this.selectedPdf);
 
       this.ds.createProfile(formData).subscribe((result: any) => {
         alert(result.message)
