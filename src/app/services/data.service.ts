@@ -10,34 +10,13 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  register(
-    gender:any,
-    name: any,
-    emailId: any,
-    phone: any,
-    userName: any,
-    password: any
-  ) {
-    const data = {
-      gender,
-      name,
-      email: emailId,
-      phone,
-      username: userName,
-      password,
-      role: 1
-    }
+  register(gender: any, name: any, emailId: any, phone: any, userName: any, password: any) {
+    const data = { gender, name, email: emailId, phone, username: userName, password, role: 1 }
     return this.http.post("http://localhost:3000/register", data)
   }
 
-  login(
-    emailId: any,
-    password: any
-  ) {
-    const data = {
-      email: emailId,
-      password
-    }
+  login(emailId: any, password: any) {
+    const data = { email: emailId, password }
     return this.http.post("http://localhost:3000/login", data)
   }
 
@@ -62,6 +41,18 @@ export class DataService {
     return this.http.get(`http://localhost:3000/download-pdf/${pdfPath}`, { responseType: 'blob' });
   }
 
+  approveProfile(profileId: string): Observable<any> {
+    return this.http.post('http://localhost:3000/approve-profile', { profileId });
+  }
+
+  disapproveProfile(profileId: string): Observable<any> {
+    return this.http.post('http://localhost:3000/disapprove-profile', { profileId });
+  }
+
+  deleteProfile(profileId: string): Observable<any> {
+    return this.http.delete(`http://localhost:3000/delete-profile/${profileId}`);
+  }
+
   getProfilesUser(gender: string) {
     return this.http.get(`http://localhost:3000/get-profiles-user?gender=${gender}`).pipe(
       catchError((error: any) => {
@@ -79,5 +70,5 @@ export class DataService {
       })
     );
   }
-  
+
 }

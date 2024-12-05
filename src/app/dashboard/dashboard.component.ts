@@ -24,14 +24,14 @@ export class DashboardComponent {
   constructor(private ds: DataService, private router: Router) { }
 
   ngOnInit(): void {
-    const userData = JSON.parse(localStorage.getItem('gender') ?? '');
-    this.loggedInUserGender = userData;
-    console.log(this.loggedInUserGender);
-
     if (typeof localStorage !== 'undefined' && !localStorage.getItem('token')) {
       alert('Please login first');
       this.router.navigateByUrl('');
     }
+
+    const userData = JSON.parse(localStorage.getItem('gender') ?? '');
+    this.loggedInUserGender = userData;
+    console.log(this.loggedInUserGender);
 
     this.ds.getProfilesUser(this.loggedInUserGender).subscribe((result: any) => {
       this.profiles = result.data;
@@ -40,6 +40,7 @@ export class DashboardComponent {
         alert(result.error.message);
       }
     )
+
     this.ds.getProfileCount().subscribe((result: any) => {
       this.profileCount = result.data;
     },
