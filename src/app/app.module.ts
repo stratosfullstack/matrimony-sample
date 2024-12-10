@@ -10,7 +10,6 @@ import { FooterComponent } from './footer/footer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { BannerSectionComponent } from './banner-section/banner-section.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
@@ -25,7 +24,6 @@ import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/
     FooterComponent,
     DashboardComponent,
     AdminDashboardComponent,
-    UserDashboardComponent,
     BannerSectionComponent,
     CreateProfileComponent
   ],

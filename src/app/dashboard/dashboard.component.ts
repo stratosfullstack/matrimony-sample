@@ -24,7 +24,7 @@ export class DashboardComponent {
   constructor(private ds: DataService, private router: Router) { }
 
   ngOnInit(): void {
-    if (typeof localStorage !== 'undefined' && !localStorage.getItem('token')) {
+    if (typeof window !== 'undefined' && !localStorage.getItem('token')) {
       alert('Please login first');
       this.router.navigateByUrl('');
     }
@@ -40,7 +40,6 @@ export class DashboardComponent {
         alert(result.error.message);
       }
     )
-
     this.ds.getProfileCount().subscribe((result: any) => {
       this.profileCount = result.data;
     },
@@ -48,9 +47,7 @@ export class DashboardComponent {
         alert(result.error.message);
       }
     )
-
   }
-
   getImageUrl(imagePath: string): string {
     return this.ds.getImageUrl(imagePath);
   }

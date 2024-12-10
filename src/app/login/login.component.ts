@@ -34,13 +34,13 @@ export class LoginComponent {
       localStorage.setItem('gender', JSON.stringify(result.gender))
       alert(result.message);
       if (result.role === 1) {
-        this.router.navigateByUrl("admin")
+        this.router.navigateByUrl("admin/dashboard")
       } else if (result.role === 0) {
         if (result.profile === 1) {
-          this.router.navigateByUrl("dashboard")
+          this.router.navigateByUrl("user/dashboard")
         }
         else {
-          this.router.navigateByUrl("create-profile")
+          this.router.navigateByUrl("user/create-profile")
         }
       }
     },
