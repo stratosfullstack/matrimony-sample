@@ -14,6 +14,7 @@ import { BannerSectionComponent } from './banner-section/banner-section.componen
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { ViewProfileComponent } from './view-profile/view-profile.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/
     DashboardComponent,
     AdminDashboardComponent,
     BannerSectionComponent,
-    CreateProfileComponent
+    CreateProfileComponent,
+    ViewProfileComponent
   ],
   imports: [
     BrowserModule,

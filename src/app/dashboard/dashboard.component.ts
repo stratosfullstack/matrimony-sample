@@ -40,6 +40,7 @@ export class DashboardComponent {
         alert(result.error.message);
       }
     )
+
     this.ds.getProfileCount().subscribe((result: any) => {
       this.profileCount = result.data;
     },
@@ -48,6 +49,7 @@ export class DashboardComponent {
       }
     )
   }
+  
   getImageUrl(imagePath: string): string {
     return this.ds.getImageUrl(imagePath);
   }

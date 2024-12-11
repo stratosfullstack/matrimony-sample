@@ -2,7 +2,7 @@
 <div class="dashboard">
     <div class="dashboard-header">
         <h1>Matrimony Profile Approval</h1>
-        <span>Total Profiles: 2</span>
+        <span>Total Profiles: {{ profileCount }}</span>
     </div>
     <table class="profiles-table">
         <thead>
@@ -20,16 +20,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="table-row" *ngFor="let profile of profiles">
-                <td>1</td>
+            <tr class="table-row" *ngFor="let profile of profiles , let i=index ">
+                <td>{{i+1}}</td>
                 <td>
                     <img [src]="getImageUrl(profile.imagePath)" alt="Profile" class="profile-photo">
                 </td>
                 <td>{{ profile.name }}</td>
-                <td>Male</td>
-                <td>28</td>
+                <td>{{profile.gender}}</td>
+                <td>{{profile.age}}</td>
                 <td>{{ profile.country }}</td>
-                <td>+91 9876543210</td>
+                <td>{{profile.phone}}</td>
                 <td>
                     <button class="btn btn-download" (click)="downloadPdf(profile.pdfPath)">
                         <i class="download-icon"></i> Download

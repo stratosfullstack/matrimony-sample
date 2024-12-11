@@ -6,7 +6,9 @@ interface Profile {
   _id: string;
   name: string;
   age: number;
+  gender: string;
   country: string;
+  phone: number;
   imagePath: string;
   pdfPath: string;
   status:number;
@@ -47,6 +49,15 @@ export class AdminDashboardComponent {
         alert(result.error.message);
       }
     )
+
+    this.ds.getProfileCount().subscribe((result: any) => {
+      this.profileCount = result.data;
+    },
+      result => {
+        alert(result.error.message);
+      }
+    )
+
   }
   
   approveProfile(profileId: string) {

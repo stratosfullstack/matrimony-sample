@@ -26,6 +26,9 @@
           <div class="input-wrapper">
             <input [type]="showPassword ? 'text' : 'password'" class="form-control" formControlName="password"
               placeholder="Password" required>
+              <div *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched" class="error-message">
+                Not a valid Password
+              </div>
             <span class="password-toggle" (click)="togglePassword()">
               <i class="fas" [ngClass]="{'fa-eye': showPassword, 'fa-eye-slash': !showPassword}"></i>
             </span>
