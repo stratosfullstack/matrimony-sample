@@ -30,7 +30,7 @@ const routes: Routes = [
     data: { role: 0 }
   },
   {
-    path: 'user/dashboard/view-profile',
+    path: 'view-profile/:id',
     component: ViewProfileComponent,
     canActivate: [AuthGuard],
     data: { role: 0 }

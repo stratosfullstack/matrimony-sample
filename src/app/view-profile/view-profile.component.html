@@ -3,33 +3,33 @@
     <div class="profile-header">
         <img src="https://cdn.pixabay.com/photo/2022/11/10/07/15/portrait-7582123_1280.jpg" alt="Profile Photo"
             class="profile-photo">
-        <h1 class="profile-name">John Doe</h1>
-        <p class="profile-subtitle">Software Engineer | Kerala, India</p>
+        <h1 class="profile-name">{{profile?.name}}</h1>
+        <p class="profile-subtitle">{{profile?.occupation}} | {{profile?.country}}</p>
     </div>
     <div class="profile-details">
         <div class="detail-item">
             <span class="detail-label">Age</span>
-            <span class="detail-value">28 Years</span>
+            <span class="detail-value">{{profile?.age}} Years</span>
         </div>
         <div class="detail-item">
             <span class="detail-label">Gender</span>
-            <span class="detail-value">Male</span>
+            <span class="detail-value">{{profile?.gender}}</span>
         </div>
         <div class="detail-item">
             <span class="detail-label">Profession</span>
-            <span class="detail-value">Software Engineer</span>
+            <span class="detail-value">{{profile?.occupation}}</span>
         </div>
         <div class="detail-item">
             <span class="detail-label">Place</span>
-            <span class="detail-value">Kerala, India</span>
+            <span class="detail-value">{{profile?.country}}</span>
         </div>
         <div class="detail-item">
             <span class="detail-label">Email</span>
-            <span class="detail-value">john.doeexample.com</span>
+            <span class="detail-value">{{profile?.email}}</span>
         </div>
         <div class="detail-item">
             <span class="detail-label">Phone</span>
-            <span class="detail-value">+91 9876543210</span>
+            <span class="detail-value">{{profile?.phone}}</span>
         </div>
         <div class="detail-item">
             <span class="detail-label">Parish</span>
