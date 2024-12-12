@@ -62,8 +62,13 @@ export class DataService {
     );
   }
 
+<<<<<<< HEAD
   viewProfile(profileId:string): Observable<any>{
     return this.http.get(`http://localhost:3000/get-profile/${profileId}`)
+=======
+  getProfile(profileId: string): Observable<any> {
+    return this.http.get(`http://localhost:3000/get-profile/${profileId}`);
+>>>>>>> 96f80e943f2046c0d0905ce5bfb9686aedc41849
   }
 
   getProfileCount(): Observable<any> {
