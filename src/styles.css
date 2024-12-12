@@ -2,6 +2,8 @@
 html,
 body {
     height: 100%;
+    background-image: url("https://cdn.pixabay.com/photo/2021/05/02/23/26/red-6224930_1280.jpg");
+    background-size: cover;
 }
 
 body {

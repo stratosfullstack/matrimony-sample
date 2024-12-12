@@ -62,6 +62,10 @@ export class DataService {
     );
   }
 
+  getProfile(profileId: string): Observable<any> {
+    return this.http.get(`http://localhost:3000/get-profile/${profileId}`);
+  }
+
   getProfileCount(): Observable<any> {
     return this.http.get("http://localhost:3000/get-profile-count").pipe(
       catchError((error: any) => {
