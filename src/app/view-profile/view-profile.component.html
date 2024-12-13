@@ -1,8 +1,7 @@
 <app-header></app-header>
 <div class="profile-container">
     <div class="profile-header">
-        <img src="https://cdn.pixabay.com/photo/2022/11/10/07/15/portrait-7582123_1280.jpg" alt="Profile Photo"
-            class="profile-photo">
+        <img *ngIf="profile && profile.imagePath" [src]="getImageUrl(profile.imagePath)" alt="Profile Photo" class="profile-photo">
         <h1 class="profile-name">{{profile?.name}}</h1>
         <p class="profile-subtitle">{{profile?.occupation}} | {{profile?.country}}</p>
     </div>
@@ -14,6 +13,10 @@
         <div class="detail-item">
             <span class="detail-label">Gender</span>
             <span class="detail-value">{{profile?.gender}}</span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Height</span>
+            <span class="detail-value">151cm</span>
         </div>
         <div class="detail-item">
             <span class="detail-label">Profession</span>

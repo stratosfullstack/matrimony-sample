@@ -1,72 +1,111 @@
-body {
-    font-family: Arial, sans-serif;
+/* Global Reset and Base Styles */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-.banner {
-    background-color: #333;
-    color: #fff;
+html, body {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Form Container Layout */
+.form-container {
+    max-width: 800px;
+    margin: 40px auto;
     padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Header */
+.form-container h2 {
+    color: #d32f2f;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
     text-align: center;
 }
 
-.banner h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.form-container {
-    width: 90%;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Desktop view */
-@media (min-width: 1024px) {
-    .form-container {
-        width: 50%;
-    }
+/* Two-Column Layout */
+.form-columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .form-group {
+    flex-basis: 45%;
     margin-bottom: 20px;
 }
 
-.form-group label {
+/* Form Elements */
+label {
     display: block;
     margin-bottom: 10px;
+    font-weight: bold;
 }
 
-.form-group input[type="text"],
-.form-group input[type="number"],
-.form-group input[type="tel"],
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    outline: none !important; /* This removes the default focus outline */
+    box-shadow: none !important; /* Removes any additional focus highlights */
+}
+
+.form-control:focus {
+    border-color: #e0e0e0; /* Keep original border color on focus */
+    outline: none !important; /* Explicitly remove outline again */
+    box-shadow: none !important; /* Remove any browser-specific focus effects */
+}
+
+/* Select Input Styling */
 .form-group select {
     width: 100%;
-    height: 40px;
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    outline: none !important; /* This removes the default focus outline */
+    box-shadow: none !important; /* Removes any additional focus highlights */
 }
 
+/* File Input Styling */
 .form-group input[type="file"] {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    outline: none !important; /* This removes the default focus outline */
+    box-shadow: none !important; /* Removes any additional focus highlights */
 }
 
-#submit-btn {
-    background-color: #ff0000;
-    color: #fff;
-    padding: 10px 20px;
+/* Submit Button */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #d32f2f;
+    color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
     cursor: pointer;
+    font-size: 1rem;
 }
 
-#submit-btn:hover {
-    background-color: #cc0000;
+button[type="submit"]:hover {
+    background-color: #b71c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 

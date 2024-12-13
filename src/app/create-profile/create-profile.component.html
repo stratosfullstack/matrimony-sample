@@ -2,48 +2,70 @@
 <div class="form-container">
     <h2>Create Profile</h2>
     <form id="matrimony-form" [formGroup]="createProfileForm" (ngSubmit)="createProfile()">
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" id="name" formControlName="name">
+        <div class="form-columns">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" formControlName="name">
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" formControlName="age">
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" formControlName="gender">
+                    <option value="">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="height">Height:</label>
+                <input type="number" id="height" formControlName="height">
+            </div>
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <select id="country" formControlName="country">
+                    <option value="">Select</option>
+                    <option *ngFor="let country of countryNames" value="{{ country }}">{{ country }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" formControlName="phone">
+            </div>
+            <div class="form-group">
+                <label for="occupation">Occupation:</label>
+                <select id="occupation" formControlName="occupation">
+                    <option value="">Select</option>
+                    <option *ngFor="let occupation of occupations" value="{{ occupation }}">{{ occupation }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="diocese">Diocese:</label>
+                <input type="text" id="diocese" formControlName="diocese">
+            </div>
+            <div class="form-group">
+                <label for="parish">Parish:</label>
+                <input type="text" id="parish" formControlName="parish">
+            </div>
+            <div class="form-group">
+                <label for="father-name">Fathers Name:</label>
+                <input type="text" id="father-name" formControlName="fatherName">
+            </div>
+            <div class="form-group">
+                <label for="mother-name">Mothers Name:</label>
+                <input type="text" id="mother-name" formControlName="motherName">
+            </div>
+            <div class="form-group">
+                <label for="profile-picture">Profile Picture:</label>
+                <input type="file" id="profile-picture" name="profile-picture" (change)="onImageSelected($event)" required>
+            </div>
+            <div class="form-group">
+                <label for="pdf">ID Proof</label>
+                <input type="file" id="pdf" name="pdf" (change)="onPdfSelected($event)" accept=".pdf">
+            </div>
         </div>
-        <div class="form-group">
-            <label for="age">Age:</label>
-            <input type="number" id="age" formControlName="age">
-        </div>
-        <div class="form-group">
-            <label for="gender">Gender:</label>
-            <select id="gender" formControlName="gender">
-                <option value="">Select</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="country">Country:</label>
-            <select id="country" formControlName="country">
-                <option value="">Select</option>
-                <option *ngFor="let country of countryNames" value="{{ country }}">{{ country }}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" formControlName="phone">
-        </div>
-        <div class="form-group">
-            <label for="occupation">Occupation:</label>
-            <select id="occupation" formControlName="occupation">
-                <option value="">Select</option>
-                <option *ngFor="let occupation of occupations" value="{{ occupation }}">{{ occupation }}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="profile-picture">Profile Picture:</label>
-            <input type="file" id="profile-picture" name="profile-picture" (change)="onImageSelected($event)" required>
-        </div>
-        <div class="form-group">
-            <label for="pdf">PDF:</label>
-            <input type="file" id="pdf" name="pdf" (change)="onPdfSelected($event)" accept=".pdf">
-          </div>
         <div class="form-group">
             <button type="submit" id="submit-btn">Create Profile</button>
         </div>

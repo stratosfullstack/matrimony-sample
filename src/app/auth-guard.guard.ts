@@ -23,6 +23,7 @@ export class AuthGuard implements CanActivate {
             if (route.data && route.data['role'] === roleNumber) {
               return true;
             } else {
+              this.router.navigateByUrl("")
               return false;
             }
           } else {
