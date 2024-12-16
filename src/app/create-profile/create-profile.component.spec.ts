@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CreateProfileComponent } from './create-profile.component';
 
+import { ChangeDetectorRef } from '@angular/core';
+
 describe('CreateProfileComponent', () => {
   let component: CreateProfileComponent;
   let fixture: ComponentFixture<CreateProfileComponent>;

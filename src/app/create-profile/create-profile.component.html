@@ -1,69 +1,123 @@
 <app-header></app-header>
 <div class="form-container">
-    <h2>Create Profile</h2>
+    <div class="site-header">
+        <h1 class="site-title">Create Your Profile</h1>
+    </div>
     <form id="matrimony-form" [formGroup]="createProfileForm" (ngSubmit)="createProfile()">
         <div class="form-columns">
             <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" formControlName="name">
+                <input type="text" class="form-control" id="name" formControlName="name" placeholder="Enter your Name">
+                <div *ngIf="createProfileForm.get('name')?.errors && createProfileForm.get('name')?.touched"
+                    class="error-message">
+                    Name is required
+                </div>
             </div>
             <div class="form-group">
-                <label for="age">Age:</label>
-                <input type="number" id="age" formControlName="age">
+                <input type="number" id="age" formControlName="age" placeholder="Age" class="form-control">
+                <div *ngIf="createProfileForm.get('age')?.errors && createProfileForm.get('age')?.touched"
+                    class="error-message">
+                    Age is required
+                </div>
             </div>
             <div class="form-group">
-                <label for="gender">Gender:</label>
                 <select id="gender" formControlName="gender">
-                    <option value="">Select</option>
+                    <option value="">Gender</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
+                <div *ngIf="createProfileForm.get('gender')?.errors && createProfileForm.get('gender')?.touched"
+                    class="error-message">
+                    Gender is required
+                </div>
             </div>
             <div class="form-group">
-                <label for="height">Height:</label>
-                <input type="number" id="height" formControlName="height">
+                <input type="number" class="form-control" id="height" formControlName="height" placeholder="Height">
+                <div *ngIf="createProfileForm.get('height')?.errors && createProfileForm.get('height')?.touched"
+                    class="error-message">
+                    Height is required
+                </div>
             </div>
             <div class="form-group">
-                <label for="country">Country:</label>
                 <select id="country" formControlName="country">
-                    <option value="">Select</option>
+                    <option value="">Country</option>
                     <option *ngFor="let country of countryNames" value="{{ country }}">{{ country }}</option>
                 </select>
+                <div *ngIf="createProfileForm.get('country')?.errors && createProfileForm.get('country')?.touched"
+                    class="error-message">
+                    Country is required
+                </div>
             </div>
             <div class="form-group">
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" formControlName="phone">
+                <input type="tel" id="phone" formControlName="phone" class="form-control" placeholder="Phone Number">
+                <div *ngIf="createProfileForm.get('phone')?.errors && createProfileForm.get('phone')?.touched"
+                    class="error-message">
+                    Phone number is required
+                </div>
             </div>
             <div class="form-group">
-                <label for="occupation">Occupation:</label>
                 <select id="occupation" formControlName="occupation">
-                    <option value="">Select</option>
+                    <option value="">Occupation</option>
                     <option *ngFor="let occupation of occupations" value="{{ occupation }}">{{ occupation }}</option>
                 </select>
+                <div *ngIf="createProfileForm.get('occupation')?.errors && createProfileForm.get('occupation')?.touched"
+                    class="error-message">
+                    Occupation is required
+                </div>
             </div>
             <div class="form-group">
-                <label for="diocese">Diocese:</label>
-                <input type="text" id="diocese" formControlName="diocese">
+                <input type="text" id="diocese" formControlName="diocese" class="form-control"
+                    placeholder="Diocese Name">
+                <div *ngIf="createProfileForm.get('diocese')?.errors && createProfileForm.get('diocese')?.touched"
+                    class="error-message">
+                    Diocese Name is required
+                </div>
             </div>
             <div class="form-group">
-                <label for="parish">Parish:</label>
-                <input type="text" id="parish" formControlName="parish">
+                <input type="text" id="parish" formControlName="parish" class="form-control" placeholder="Parish Name">
+                <div *ngIf="createProfileForm.get('parish')?.errors && createProfileForm.get('parish')?.touched"
+                    class="error-message">
+                    Parish Name is required
+                </div>
             </div>
             <div class="form-group">
-                <label for="father-name">Fathers Name:</label>
-                <input type="text" id="father-name" formControlName="fatherName">
+                <input type="text" id="house" formControlName="houseName" class="form-control" placeholder="House Name">
+                <div *ngIf="createProfileForm.get('houseName')?.errors && createProfileForm.get('houseName')?.touched"
+                    class="error-message">
+                    House Name is required
+                </div>
             </div>
             <div class="form-group">
-                <label for="mother-name">Mothers Name:</label>
-                <input type="text" id="mother-name" formControlName="motherName">
+                <input type="text" id="father-name" formControlName="fatherName" class="form-control"
+                    placeholder="Father's Name">
+                <div *ngIf="createProfileForm.get('fatherName')?.errors && createProfileForm.get('fatherName')?.touched"
+                    class="error-message">
+                    Father's Name is required
+                </div>
             </div>
             <div class="form-group">
-                <label for="profile-picture">Profile Picture:</label>
-                <input type="file" id="profile-picture" name="profile-picture" (change)="onImageSelected($event)" required>
+                <input type="text" id="mother-name" formControlName="motherName" class="form-control"
+                    placeholder="Mother's Name">
+                <div *ngIf="createProfileForm.get('motherName')?.errors && createProfileForm.get('motherName')?.touched"
+                    class="error-message">
+                    Mother's Name is required
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="pdf">Profile Picture</label>
+                <input type="file" id="profile-picture" name="profile-picture" (change)="onImageSelected($event)"
+                    required>
+                <div *ngIf="createProfileForm.get('fatherName')?.errors && createProfileForm.get('fatherName')?.touched"
+                    class="error-message">
+                    Profile Picture is required
+                </div>
             </div>
             <div class="form-group">
                 <label for="pdf">ID Proof</label>
                 <input type="file" id="pdf" name="pdf" (change)="onPdfSelected($event)" accept=".pdf">
+                <div *ngIf="createProfileForm.get('fatherName')?.errors && createProfileForm.get('fatherName')?.touched"
+                    class="error-message">
+                    ID Proof is required
+                </div>
             </div>
         </div>
         <div class="form-group">

@@ -12,6 +12,11 @@ interface Profile {
   imagePath: string;
   phone:number;
   email:number;
+  fatherName: string;
+  motherName: string;
+  parish: string;
+  diocese: string;
+  houseName:string;
 }
 
 @Component({

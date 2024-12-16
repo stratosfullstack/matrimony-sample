@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './create-profile.component.css'
 })
 export class CreateProfileComponent {
+
   countryNames = [
     'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda',
     'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas',
@@ -224,9 +225,15 @@ export class CreateProfileComponent {
       name: ['', [Validators.required, Validators.minLength(2)]],
       age: ['', [Validators.required, Validators.minLength(2)]],
       gender: ['', [Validators.required]],
+      height: ['', [Validators.required]],
       country: ['', [Validators.required]],
       phone: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       occupation: ['', [Validators.required, Validators.minLength(5)]],
+      diocese: ['', [Validators.required]],
+      parish: ['', [Validators.required]],
+      houseName: ['', [Validators.required]],
+      fatherName: ['', [Validators.required]],
+      motherName: ['', [Validators.required]]
     })
   }
 
@@ -237,7 +244,7 @@ export class CreateProfileComponent {
     ? JSON.parse(localStorage.getItem('currentEmailid') ?? 'null')
     : null;
 
-  emailId = this.storedData;
+  email = this.storedData;
 
   onImageSelected(event: any) {
     this.selectedImage = event.target.files[0];
@@ -253,13 +260,18 @@ export class CreateProfileComponent {
       formData.append('name', this.createProfileForm.value.name);
       formData.append('age', this.createProfileForm.value.age);
       formData.append('gender', this.createProfileForm.value.gender);
+      formData.append('height', this.createProfileForm.value.height);
       formData.append('country', this.createProfileForm.value.country);
       formData.append('phone', this.createProfileForm.value.phone);
+      formData.append('email', this.email ?? '');
       formData.append('occupation', this.createProfileForm.value.occupation);
-      formData.append('email', this.emailId ?? '');
+      formData.append('diocese', this.createProfileForm.value.diocese);
+      formData.append('parish', this.createProfileForm.value.parish);
+      formData.append('houseName', this.createProfileForm.value.houseName);
+      formData.append('fatherName', this.createProfileForm.value.fatherName);
+      formData.append('motherName', this.createProfileForm.value.motherName);
       formData.append('image', this.selectedImage);
       formData.append('pdf', this.selectedPdf);
-
       this.ds.createProfile(formData).subscribe((result: any) => {
         alert(result.message)
         this.router.navigateByUrl("")

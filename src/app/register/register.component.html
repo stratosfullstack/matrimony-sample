@@ -18,13 +18,12 @@
                         <option value="Female">Groom</option>
                     </select>
                     <div *ngIf="registerForm.get('gender')?.errors && registerForm.get('gender')?.touched"
-                    class="error-message">
-                    Mandatory.
-                </div>
+                        class="error-message">
+                        Mandatory.
+                    </div>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" formControlName="name" placeholder="Name"
-                        required>
+                    <input type="text" class="form-control" formControlName="name" placeholder="Name" required>
                     <div *ngIf="registerForm.get('name')?.errors && registerForm.get('name')?.touched"
                         class="error-message">
                         Name is required.
@@ -53,7 +52,8 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" formControlName="password" placeholder="Password" required>
+                    <input type="password" class="form-control" formControlName="password" placeholder="Password"
+                        required>
                     <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched"
                         class="error-message">
                         Password is required.
@@ -61,7 +61,8 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Confirm Password" required>
+                    <input type="password" class="form-control" formControlName="confirmPassword"
+                        placeholder="Confirm Password" required>
                     <div *ngIf="registerForm.get('confirmPassword')?.errors && registerForm.get('confirmPassword')?.touched"
                         class="error-message">
                         Passwords do not match.
