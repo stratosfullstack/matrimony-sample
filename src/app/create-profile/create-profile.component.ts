@@ -233,7 +233,7 @@ export class CreateProfileComponent {
       parish: ['', [Validators.required]],
       houseName: ['', [Validators.required]],
       fatherName: ['', [Validators.required]],
-      motherName: ['', [Validators.required]]
+      motherName: ['', [Validators.required]],
     })
   }
 
