@@ -15,6 +15,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { CreateProfileComponent } from './create-profile/create-profile.component';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
+import { TransparentHeaderComponent } from './transparent-header/transparent-header.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ViewProfileComponent } from './view-profile/view-profile.component';
     AdminDashboardComponent,
     BannerSectionComponent,
     CreateProfileComponent,
-    ViewProfileComponent
+    ViewProfileComponent,
+    TransparentHeaderComponent
   ],
   imports: [
     BrowserModule,

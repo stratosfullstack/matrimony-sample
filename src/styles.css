@@ -8,5 +8,38 @@ body {
 
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: AdriannaExtended-Regular;
+}
+
+/* src/styles.css */
+
+@font-face {
+    font-family: 'Exo-Regular';
+    src: url('/assets/fonts/Exo-Regular.woff2') format('woff2'),
+}
+
+@font-face {
+    font-family: 'Exo-Medium';
+    src: url('/assets/fonts/Exo-Medium.woff2') format('woff2'),
+}
+
+@font-face {
+    font-family: 'Exo-Bold';
+    src: url('/assets/fonts/Exo-Bold.woff2') format('woff2'),
+}
+
+h1 {
+    font-family: Cabin-SemiBold;
+}
+
+h4 {
+    font-family: Cabin-SemiBold;
+}
+
+p {
+    font-family: AdriannaExtended-Regular;
+}
+
+a {
+    font-family: AdriannaExtended-Regular;
 }
