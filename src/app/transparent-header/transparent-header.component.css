@@ -45,12 +45,11 @@ body {
 }
 
 .nav a {
-  font-family: AdriannaExtended-Regular;
   color: black;
 }
 
 .nav-button {
-  background-color: #FF246C; /* Button background */
+  background-color: #FF246C;
   border-radius: 15px;
   border: none;
   padding: 10px 15px;
@@ -58,7 +57,7 @@ body {
 }
 
 .nav-button a {
-  color: #fff; /* Anchor text color */
+  color: #fff;
   text-decoration: none;
   display: block;
 }

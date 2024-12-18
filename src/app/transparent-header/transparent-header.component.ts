@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-transparent-header',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './transparent-header.component.css'
 })
 export class TransparentHeaderComponent {
-
+    @Input() showRegisterButton: boolean = true;
 }

@@ -84,8 +84,8 @@ export class LoginComponent implements AfterViewInit {
         items[active].style.opacity = '1';
       }
 
-      // Auto-slide every 3 seconds
-      setInterval(fadeSlider, 3000);
+      // Auto-slide every 4 seconds
+      setInterval(fadeSlider, 4000);
 
       // Handle window resize
       window.onresize = () => {

@@ -1,13 +1,16 @@
 <header class="header">
-    <div class="logo">
-      <img src="assets/images/logo.png" alt="Logo">
-    </div>
-    <nav class="nav">
-      <button class="nav-button">
-        <a routerLink="register" class="nav-link">Register</a>
-      </button>
-      <button class="nav-button">
-        <a href="#" class="nav-link">Help</a>
-      </button>
-    </nav>    
+  <div class="logo">
+    <img src="assets/images/logo.png" alt="Logo">
+  </div>
+  <nav class="nav">
+    <button class="nav-button">
+      <a *ngIf="showRegisterButton; else loginButton" routerLink="register" class="nav-link">Register</a>
+      <ng-template #loginButton>
+        <a routerLink="login" class="nav-link">Login</a>
+      </ng-template>
+    </button>
+    <button class="nav-button">
+      <a href="#" class="nav-link">Help</a>
+    </button>
+  </nav>
 </header>
