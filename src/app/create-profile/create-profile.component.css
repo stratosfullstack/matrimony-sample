@@ -23,7 +23,7 @@ html, body {
 
 /* Form Header */
 .form-container h2 {
-    color: #d32f2f;
+    color: #FF246C;
     font-size: 2rem;
     margin-bottom: 20px;
     font-weight: bold;
@@ -83,7 +83,7 @@ html, body {
 button[type="submit"] {
     width: 100%;
     padding: 12px;
-    background-color: #d32f2f;
+    background-color: #FF246C;
     color: white;
     border: none;
     border-radius: 8px;
@@ -142,30 +142,8 @@ button[type="submit"]:hover {
     overflow: hidden;
 }
 
-.site-logo {
-    width: 80px;
-    height: 80px;
-    background-color: #d32f2f;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 15px;
-    box-shadow: 0 4px 6px rgba(211, 47, 47, 0.2);
-    position: relative;
-    z-index: 1;
-}
-
-.logo-text {
-    font-size: 3rem;
-    font-weight: bold;
-    font-family: 'Playfair Display', serif;
-    line-height: 1;
-}
-
 .site-title {
-    color: #d32f2f;
+    color: #FF246C;
     font-size: 2.2rem;
     margin-bottom: 10px;
     font-weight: 700;
@@ -173,15 +151,6 @@ button[type="submit"]:hover {
     font-family: 'Playfair Display', serif;
 }
 
-.site-caption {
-    color: #666;
-    font-size: 1rem;
-    font-weight: 400;
-    font-style: italic;
-    max-width: 400px;
-    margin: 0 auto;
-    line-height: 1.6;
-}
 
 /* Optional: Add a subtle decorative element */
 .site-header::before {
