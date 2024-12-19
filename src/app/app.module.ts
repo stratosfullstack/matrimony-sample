@@ -16,6 +16,8 @@ import { CreateProfileComponent } from './create-profile/create-profile.componen
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { TransparentHeaderComponent } from './transparent-header/transparent-header.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { TransparentHeaderComponent } from './transparent-header/transparent-hea
     BannerSectionComponent,
     CreateProfileComponent,
     ViewProfileComponent,
-    TransparentHeaderComponent
+    TransparentHeaderComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
