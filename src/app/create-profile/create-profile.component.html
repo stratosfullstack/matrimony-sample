@@ -1,7 +1,7 @@
 <app-main-header></app-main-header>
 <div class="form-container">
     <div class="site-header">
-        <h1 class="site-title">Create Your Profile</h1>
+        <h1 class="site-title">Create Your Matrimony Profile</h1>
     </div>
     <form id="matrimony-form" [formGroup]="createProfileForm" (ngSubmit)="createProfile()">
         <div class="form-columns">
@@ -48,10 +48,49 @@
                 </div>
             </div>
             <div class="form-group">
-                <input type="tel" id="phone" formControlName="phone" class="form-control" placeholder="Phone Number">
+                <input type="text" class="form-control" id="state" formControlName="state" placeholder="State">
+                <div *ngIf="createProfileForm.get('state')?.errors && createProfileForm.get('state')?.touched"
+                    class="error-message">
+                    State is required
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="district" formControlName="district" placeholder="District">
+                <div *ngIf="createProfileForm.get('district')?.errors && createProfileForm.get('district')?.touched"
+                    class="error-message">
+                    District is required
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="place" formControlName="place" placeholder="Place">
+                <div *ngIf="createProfileForm.get('place')?.errors && createProfileForm.get('place')?.touched"
+                    class="error-message">
+                    Place is required
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <select id="countryCode" formControlName="countryCode" class="form-control" style="width: 20%">
+                        <option value="">+00</option>
+                        <option *ngFor="let countryCode of countryCodes" value="{{ countryCode }}">+{{ countryCode }}
+                        </option>
+                    </select>
+                    <input type="tel" id="phone" formControlName="phone" class="form-control" placeholder="Phone Number"
+                        style="width: 80%">
+                </div>
                 <div *ngIf="createProfileForm.get('phone')?.errors && createProfileForm.get('phone')?.touched"
                     class="error-message">
-                    Phone number is required
+                    Country code & Phone Number is required
+                </div>
+            </div>
+            <div class="form-group">
+                <select id="education" formControlName="education">
+                    <option value="">Highest Qualification</option>
+                    <option *ngFor="let education of educations" value="{{ education }}">{{ education }}</option>
+                </select>
+                <div *ngIf="createProfileForm.get('education')?.errors && createProfileForm.get('education')?.touched"
+                    class="error-message">
+                    Highest Qualification is required
                 </div>
             </div>
             <div class="form-group">
@@ -104,8 +143,8 @@
             </div>
             <div class="form-group">
                 <label for="pdf">Profile Picture</label>
-                <input type="file" id="profile-picture" formControlName="profilePicture" (change)="onImageSelected($event)"
-                    required>
+                <input type="file" id="profile-picture" formControlName="profilePicture"
+                    (change)="onImageSelected($event)" required>
                 <div *ngIf="createProfileForm.get('profilePicture')?.errors && createProfileForm.get('profilePicture')?.touched"
                     class="error-message">
                     Profile Picture is required
