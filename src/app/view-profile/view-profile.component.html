@@ -13,9 +13,9 @@
 
                 <div class="main-details">
                     <p><img src="assets/images/ic_(1).png" alt="Age Icon" class="icon"> Age: <span>{{profile?.age}} Years</span></p>
-                    <p><img src="assets/images/ic_(2).png" alt="Height Icon" class="icon"> Height: <span>5'9"</span></p>
-                    <p><img src="assets/images/ic_(3).png" alt="Education Icon" class="icon"> Education: <span>Master's in Journalism</span></p>
-                    <p><img src="assets/images/ic_(4).png" alt="Home Icon" class="icon"> Home Address: <span>123 Main Street, Springfield</span></p>
+                    <p><img src="assets/images/ic_(2).png" alt="Height Icon" class="icon"> Height: <span>{{profile?.height}}cm</span></p>
+                    <p><img src="assets/images/ic_(3).png" alt="Education Icon" class="icon"> Education: <span>{{profile?.education}}</span></p>
+                    <p><img src="assets/images/ic_(4).png" alt="Home Icon" class="icon"> Home Address: <span>{{profile?.houseName}},{{profile?.place}},{{profile?.district}},{{profile?.state}}</span></p>
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
             <!-- Contact Info Card -->
             <div class="contact-info-card">
                 <h3>Contact Info</h3>
-                <p><img src="assets/images/ic_(6).png" alt="Age Icon" class="icon"> {{profile?.phone}}</p>
+                <p><img src="assets/images/ic_(6).png" alt="Age Icon" class="icon">+{{profile?.countryCode}} {{profile?.phone}}</p>
                 <p><img src="assets/images/ic_(5).png" alt="Age Icon" class="icon"> {{profile?.email}}</p>
             </div>
         </div>

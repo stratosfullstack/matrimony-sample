@@ -6,17 +6,23 @@ import { error } from 'console';
 interface Profile {
   name: string;
   age: number;
-  country: string;
   gender: string;
-  occupation:string;
+  height: number;
+  country: string;
+  state: string;
+  district: string;
+  place: string;
+  education: string;
+  occupation: string;
   imagePath: string;
-  phone:number;
-  email:number;
+  countryCode: number;
+  phone: number;
+  email: number;
   fatherName: string;
   motherName: string;
   parish: string;
   diocese: string;
-  houseName:string;
+  houseName: string;
 }
 
 @Component({
@@ -40,7 +46,7 @@ export class ViewProfileComponent {
         next: (response) => {
           this.profile = response.data;
           console.log(this.profile);
-          
+
         },
         error: (error) => {
           console.error(error);

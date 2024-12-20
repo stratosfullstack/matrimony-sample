@@ -347,8 +347,7 @@ export class CreateProfileComponent {
       formData.append('image', this.selectedImage);
       formData.append('pdf', this.selectedPdf);
       this.ds.createProfile(formData).subscribe((result: any) => {
-        alert(result.message)
-        this.router.navigateByUrl("")
+        this.router.navigateByUrl('profilecreationsuccesspage')
       },
         result => {
           alert(result.error.message)

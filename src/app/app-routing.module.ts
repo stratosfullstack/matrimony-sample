@@ -18,7 +18,12 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'registrationsuccesspage', component: RegSuccessPageComponent },
-  { path: 'profilecreationsuccesspage', component: ProfileCreateSuccessPageComponent },
+
+  { path: 'profilecreationsuccesspage',
+    component: ProfileCreateSuccessPageComponent,
+    canActivate: [AuthGuard],
+    data: { role: 0 }
+  },
   {
     path: 'admin/dashboard',
     component: AdminDashboardComponent,
