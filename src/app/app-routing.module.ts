@@ -14,9 +14,9 @@ import { RegSuccessPageComponent } from './reg-success-page/reg-success-page.com
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'registersuccesspage', component: RegSuccessPageComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'registrationsuccesspage', component: RegSuccessPageComponent },
   {
     path: 'admin/dashboard',
     component: AdminDashboardComponent,

@@ -37,7 +37,7 @@ import { RegSuccessPageComponent } from './reg-success-page/reg-success-page.com
     ForgotPasswordComponent,
     ResetPasswordComponent,
     MainHeaderComponent,
-    RegSuccessPageComponent
+    RegSuccessPageComponent,
   ],
   imports: [
     BrowserModule,
