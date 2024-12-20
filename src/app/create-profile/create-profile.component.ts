@@ -335,6 +335,7 @@ export class CreateProfileComponent {
       formData.append('district', this.createProfileForm.value.district);
       formData.append('place', this.createProfileForm.value.place);
       formData.append('countryCode', this.createProfileForm.value.countryCode);
+      formData.append('phone', this.createProfileForm.value.phone);
       formData.append('email', this.email ?? '');
       formData.append('education', this.createProfileForm.value.education);
       formData.append('occupation', this.createProfileForm.value.occupation);

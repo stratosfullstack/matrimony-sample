@@ -41,8 +41,7 @@ export class RegisterComponent implements AfterViewInit {
         this.registerForm.value.password
       ).subscribe(
         (result: any) => {
-          alert(result.message);
-          this.router.navigateByUrl('');
+          this.router.navigateByUrl('registrationsuccesspage');
         },
         (result) => {
           alert(result.error.message);
