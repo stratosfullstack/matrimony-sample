@@ -234,6 +234,8 @@ export class CreateProfileComponent {
       houseName: ['', [Validators.required]],
       fatherName: ['', [Validators.required]],
       motherName: ['', [Validators.required]],
+      profilePicture: ['', [Validators.required]],
+      idproof: ['', [Validators.required]],
     })
   }
 

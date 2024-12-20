@@ -106,7 +106,7 @@
                 <label for="pdf">Profile Picture</label>
                 <input type="file" id="profile-picture" formControlName="profilePicture" (change)="onImageSelected($event)"
                     required>
-                <div *ngIf="createProfileForm.get('fatherName')?.errors && createProfileForm.get('fatherName')?.touched"
+                <div *ngIf="createProfileForm.get('profilePicture')?.errors && createProfileForm.get('profilePicture')?.touched"
                     class="error-message">
                     Profile Picture is required
                 </div>
@@ -114,7 +114,7 @@
             <div class="form-group">
                 <label for="pdf">ID Proof</label>
                 <input type="file" id="pdf" (change)="onPdfSelected($event)" accept=".pdf" formControlName="idproof">
-                <div *ngIf="createProfileForm.get('fatherName')?.errors && createProfileForm.get('fatherName')?.touched"
+                <div *ngIf="createProfileForm.get('idproof')?.errors && createProfileForm.get('idproof')?.touched"
                     class="error-message">
                     ID Proof is required
                 </div>
