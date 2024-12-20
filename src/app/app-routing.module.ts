@@ -10,6 +10,7 @@ import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { RegSuccessPageComponent } from './reg-success-page/reg-success-page.component';
+import { ProfileCreateSuccessPageComponent } from './profile-create-success-page/profile-create-success-page.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'registrationsuccesspage', component: RegSuccessPageComponent },
+  { path: 'profilecreationsuccesspage', component: ProfileCreateSuccessPageComponent },
   {
     path: 'admin/dashboard',
     component: AdminDashboardComponent,

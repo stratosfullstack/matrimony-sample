@@ -20,6 +20,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { MainHeaderComponent } from './main-header/main-header.component';
 import { RegSuccessPageComponent } from './reg-success-page/reg-success-page.component';
+import { ProfileCreateSuccessPageComponent } from './profile-create-success-page/profile-create-success-page.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { RegSuccessPageComponent } from './reg-success-page/reg-success-page.com
     ResetPasswordComponent,
     MainHeaderComponent,
     RegSuccessPageComponent,
+    ProfileCreateSuccessPageComponent,
   ],
   imports: [
     BrowserModule,
