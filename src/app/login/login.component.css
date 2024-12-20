@@ -47,7 +47,7 @@ body {
 
 .slider .list .content {
     position: absolute;
-    bottom: 30px;
+    bottom: 120px;
     left: 30px;
     color: #fff;
     max-width: 400px;
@@ -93,6 +93,7 @@ body {
 .site-caption {
     color: #666;
     font-size: 1rem;
+    padding-bottom: 10px;
 }
 
 .intro-description {
@@ -162,4 +163,11 @@ body {
 
 .password-toggle:hover {
     color: #333;
+}
+
+.error-message {
+    font-size: 0.75rem; 
+    color: #d32f2f;
+    margin-top: 5px;
+    font-family: Alpino-Regular;
 }

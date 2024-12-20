@@ -2,10 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
-/* Add these new styles for page layout */
 html,
 body {
     height: 100%;
@@ -17,9 +15,6 @@ body {
     display: flex;
     flex-direction: column;
 }
-
-
-
 
 /* Dashboard Header Styles */
 .dashboard-header {

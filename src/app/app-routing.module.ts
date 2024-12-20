@@ -7,10 +7,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
 import { AuthGuard } from './auth-guard.guard';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
+import { RegSuccessPageComponent } from './reg-success-page/reg-success-page.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'registersuccesspage', component: RegSuccessPageComponent },
   {
     path: 'admin/dashboard',
     component: AdminDashboardComponent,

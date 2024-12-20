@@ -126,7 +126,8 @@
 }
 
 .error-message {
-    font-size: 0.75rem; /* Decrease font size of error messages */
-    color: red;
+    font-size: 0.75rem; 
+    color: #d32f2f;
     margin-top: 5px;
+    font-family: Alpino-Regular;
 }

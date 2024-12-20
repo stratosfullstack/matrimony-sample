@@ -7,7 +7,6 @@ body {
 
 body {
     margin: 0;
-    font-family: AdriannaExtended-Regular;
 }
 
 /* src/styles.css */
@@ -40,5 +39,17 @@ p {
 }
 
 a {
+    font-family: Alpino-Regular;
+}
+
+select {
+    font-family: Alpino-Regular;
+}
+
+option {
+    font-family: Alpino-Regular;
+}
+
+input {
     font-family: Alpino-Regular;
 }

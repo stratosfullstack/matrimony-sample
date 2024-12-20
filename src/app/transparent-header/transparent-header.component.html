@@ -3,12 +3,21 @@
     <img src="assets/images/logo.png" alt="Logo">
   </div>
   <nav class="nav">
-    <button class="nav-button">
-      <a *ngIf="showRegisterButton; else loginButton" routerLink="register" class="nav-link">Register</a>
-      <ng-template #loginButton>
-        <a routerLink="login" class="nav-link">Login</a>
-      </ng-template>
-    </button>
+    <ng-container *ngIf="isLoggedIn; else authButtons">
+      <!-- Logout button when logged in -->
+      <button class="nav-button">
+        <a (click)="logout()" routerLink="logout" class="nav-link">Logout</a>
+      </button>
+    </ng-container>
+    <ng-template #authButtons>
+      <!-- Register or Login buttons when not logged in -->
+      <button class="nav-button">
+        <a *ngIf="showRegisterButton; else loginButton" routerLink="register" class="nav-link">Register</a>
+        <ng-template #loginButton>
+          <a routerLink="login" class="nav-link">Login</a>
+        </ng-template>
+      </button>
+    </ng-template>
     <button class="nav-button">
       <a href="#" class="nav-link">Help</a>
     </button>

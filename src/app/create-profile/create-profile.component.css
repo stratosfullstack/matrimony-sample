@@ -7,7 +7,6 @@
 
 html, body {
     height: 100%;
-    font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
 }
 
@@ -88,17 +87,10 @@ button[type="submit"] {
     border: none;
     border-radius: 8px;
     font-weight: bold;
-    text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.3s ease;
     cursor: pointer;
     font-size: 1rem;
-}
-
-button[type="submit"]:hover {
-    background-color: #b71c1c;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Extra Links */
@@ -148,7 +140,6 @@ button[type="submit"]:hover {
     margin-bottom: 10px;
     font-weight: 700;
     letter-spacing: -1px;
-    font-family: 'Playfair Display', serif;
 }
 
 
