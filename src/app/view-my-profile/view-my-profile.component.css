@@ -1,0 +1,122 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px 20px 0px;
+  }
+  
+  .parent-card {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 4% 0;
+  }
+  
+  .profile-card {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border: 1px solid #FF246C;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .profile-image {
+    flex: 0 0 250px;
+    border-radius: 30px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 250px; 
+    max-height: 300px; 
+    margin: 50px;
+  }
+  
+  .profile-image img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+    display: block; /* Removes any unwanted spacing below the image */
+  }
+  
+  
+  .profile-details {
+    flex: 2;
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Arrange content vertically */
+    justify-content: space-between; /* Push elements to top and bottom */
+    padding: 50px 50px 50px 0px;
+  }
+  
+  .profile-details h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #FF246C;
+  }
+  
+  .profile-details .designation {
+    margin: 5px 0;
+    color: #777;
+    font-size: 1rem;
+  }
+  
+  .main-details p {
+    margin-bottom: 15px; 
+    padding-top: 15px;
+  }
+  
+  .profile-actions {
+    display: flex;
+    align-self: flex-end;
+    gap: 10px;
+    margin-top: auto; 
+  }
+  
+  .icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  
+  .additional-cards {
+    width: 90%; /* Match the width of .profile-card */
+    margin: 0 auto; /* Center it horizontally */
+    display: flex;
+    gap: 20px; /* Spacing between the cards */
+  }
+  
+  .contact-info-card {
+    flex: 1; /* Takes up 20% */
+    max-width: 40%; /* Ensure it does not exceed 20% */
+    background-color: #FF246C;
+    color: white;
+    border-radius: 15px;
+    padding: 20px;
+  }
+  
+  .contact-info-card h3 {
+    margin-top: 0;
+    color: white;
+  }
+  
+  .other-info-card {
+    flex: 4; /* Takes up 80% */
+    max-width: 60%; /* Ensure it does not exceed 80% */
+    border-radius: 15px;
+    border: 1px solid #FF246C;
+    padding: 20px;
+  }
+  
+  .other-info-card h3 {
+    margin-top: 0;
+    color: #FF246C;
+  }

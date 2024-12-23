@@ -39,21 +39,40 @@ export class LoginComponent implements AfterViewInit {
       localStorage.setItem('token', JSON.stringify(result.token));
       localStorage.setItem('role', JSON.stringify(result.role));
       localStorage.setItem('gender', JSON.stringify(result.gender));
+      localStorage.setItem('isProfileApproved',JSON.stringify(result.isProfileApproved))
       alert(result.message);
+
+      // if (result.role === 1) {
+      //   this.router.navigateByUrl("admin/dashboard");
+      // } else if (result.role === 0) {
+      //   if (result.profile === 1) {
+      //     this.router.navigateByUrl("user/dashboard");
+      //   } else {
+      //     this.router.navigateByUrl("user/create-profile");
+      //   }
+      // }
 
       if (result.role === 1) {
         this.router.navigateByUrl("admin/dashboard");
       } else if (result.role === 0) {
         if (result.profile === 1) {
-          this.router.navigateByUrl("user/dashboard");
+          if (result.isProfileApproved === 1) {
+            this.router.navigateByUrl("user/dashboard");
+          } else if (result.isProfileApproved === null) {
+            this.router.navigateByUrl("profilecreationsuccesspage");
+          } else {
+            // Handle other status values, if any
+          }
         } else {
           this.router.navigateByUrl("user/create-profile");
         }
       }
+
+
     },
-    result => {
-      alert(result.error.message);
-    });
+      result => {
+        alert(result.error.message);
+      });
   }
 
   // Fade Slider Logic

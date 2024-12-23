@@ -21,6 +21,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { MainHeaderComponent } from './main-header/main-header.component';
 import { RegSuccessPageComponent } from './reg-success-page/reg-success-page.component';
 import { ProfileCreateSuccessPageComponent } from './profile-create-success-page/profile-create-success-page.component';
+import { ViewMyProfileComponent } from './view-my-profile/view-my-profile.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ProfileCreateSuccessPageComponent } from './profile-create-success-page
     MainHeaderComponent,
     RegSuccessPageComponent,
     ProfileCreateSuccessPageComponent,
+    ViewMyProfileComponent,
   ],
   imports: [
     BrowserModule,

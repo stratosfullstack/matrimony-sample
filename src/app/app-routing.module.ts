@@ -11,6 +11,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { RegSuccessPageComponent } from './reg-success-page/reg-success-page.component';
 import { ProfileCreateSuccessPageComponent } from './profile-create-success-page/profile-create-success-page.component';
+import { ViewMyProfileComponent } from './view-my-profile/view-my-profile.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -45,6 +46,12 @@ const routes: Routes = [
   {
     path: 'view-profile/:id',
     component: ViewProfileComponent,
+    canActivate: [AuthGuard],
+    data: { role: 0 }
+  },
+  {
+    path: 'view-my-profile/:id',
+    component: ViewMyProfileComponent,
     canActivate: [AuthGuard],
     data: { role: 0 }
   },

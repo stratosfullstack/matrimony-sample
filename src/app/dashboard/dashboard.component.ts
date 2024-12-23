@@ -20,6 +20,7 @@ export class DashboardComponent {
   profiles: Profile[] = [];
   profileCount: any;
   loggedInUserGender: any;
+  loggedInUserStatus: any;
 
   constructor(private ds: DataService, private router: Router) { }
 
@@ -30,26 +31,30 @@ export class DashboardComponent {
     }
 
     const userData = JSON.parse(localStorage.getItem('gender') ?? '');
+    const userStatus = JSON.parse(localStorage.getItem('isProfileApproved') ?? '');
     this.loggedInUserGender = userData;
+    this.loggedInUserStatus = userStatus;
     console.log(this.loggedInUserGender);
 
-    this.ds.getProfilesUser(this.loggedInUserGender).subscribe((result: any) => {
-      this.profiles = result.data;
-    },
-      result => {
-        alert(result.error.message);
-      }
-    )
+    if (this.loggedInUserStatus === 1) {
+      this.ds.getProfilesUser(this.loggedInUserGender).subscribe((result: any) => {
+        this.profiles = result.data;
+      },
+        result => {
+          alert(result.error.message);
+        }
+      )
 
-    this.ds.getProfileCount().subscribe((result: any) => {
-      this.profileCount = result.data;
-    },
-      result => {
-        alert(result.error.message);
-      }
-    )
+      this.ds.getProfileCount().subscribe((result: any) => {
+        this.profileCount = result.data;
+      },
+        result => {
+          alert(result.error.message);
+        }
+      )
+    }
   }
-  
+
   getImageUrl(imagePath: string): string {
     return this.ds.getImageUrl(imagePath);
   }

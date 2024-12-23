@@ -17,7 +17,6 @@ export class AuthGuard implements CanActivate {
       if (this.platformId === 'browser') {
         const token = localStorage.getItem('token');
         const role = localStorage.getItem('role');
-
         if (token && role) {
           const roleNumber = parseInt(role);
             if (route.data && route.data['role'] === roleNumber) {
