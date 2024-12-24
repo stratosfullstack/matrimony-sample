@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DataService } from '../services/data.service';
-import { error } from 'console';
+import { DataService } from '../services/data.service'
 
 interface Profile {
   name: string;
@@ -46,7 +45,6 @@ export class ViewProfileComponent {
         next: (response) => {
           this.profile = response.data;
           console.log(this.profile);
-
         },
         error: (error) => {
           console.error(error);

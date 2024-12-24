@@ -12,6 +12,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { RegSuccessPageComponent } from './reg-success-page/reg-success-page.component';
 import { ProfileCreateSuccessPageComponent } from './profile-create-success-page/profile-create-success-page.component';
 import { ViewMyProfileComponent } from './view-my-profile/view-my-profile.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -40,6 +41,12 @@ const routes: Routes = [
   {
     path: 'user/create-profile',
     component: CreateProfileComponent,
+    canActivate: [AuthGuard],
+    data: { role: 0 }
+  },
+  {
+    path: 'user/update-profile',
+    component: UpdateProfileComponent,
     canActivate: [AuthGuard],
     data: { role: 0 }
   },

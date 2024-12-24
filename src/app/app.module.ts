@@ -22,6 +22,7 @@ import { MainHeaderComponent } from './main-header/main-header.component';
 import { RegSuccessPageComponent } from './reg-success-page/reg-success-page.component';
 import { ProfileCreateSuccessPageComponent } from './profile-create-success-page/profile-create-success-page.component';
 import { ViewMyProfileComponent } from './view-my-profile/view-my-profile.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ViewMyProfileComponent } from './view-my-profile/view-my-profile.compon
     RegSuccessPageComponent,
     ProfileCreateSuccessPageComponent,
     ViewMyProfileComponent,
+    UpdateProfileComponent,
   ],
   imports: [
     BrowserModule,

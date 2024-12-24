@@ -1,43 +1,43 @@
 <app-main-header></app-main-header>
 <div class="container">
-    <div class="parent-card">
-        <!-- Existing Profile Card -->
-        <div class="profile-card">  
-            <div class="profile-image">
-                <img alt="Profile Photo">
-            </div>
-            <div class="profile-details">
-                <h2></h2>
-                <p class="designation"></p>
+  <div class="parent-card">
+    <!-- Existing Profile Card -->
+    <div class="profile-card" *ngIf="profile && profile.length > 0">
+      <div class="profile-image">
+        <img *ngIf="profile[0].imagePath" [src]="getImageUrl(profile[0].imagePath)" alt="Profile Photo">
+      </div>
+      <div class="profile-details">
+        <h2>{{ profile[0].name }}</h2>
+        <p class="designation">{{ profile[0].occupation }} | {{ profile[0].country }}</p>
 
-                <div class="main-details">
-                    <p><img src="assets/images/ic_(1).png" alt="Age Icon" class="icon"> Age: <span></span></p>
-                    <p><img src="assets/images/ic_(2).png" alt="Height Icon" class="icon"> Height: <span></span></p>
-                    <p><img src="assets/images/ic_(3).png" alt="Education Icon" class="icon"> Education: <span></span></p>
-                    <p><img src="assets/images/ic_(4).png" alt="Home Icon" class="icon"> Home Address: <span></span></p>
-                </div>
-            </div>
+        <div class="main-details">
+          <p><img src="assets/images/ic_(1).png" alt="Age Icon" class="icon"> Age: <span>{{ profile[0].age }} Years</span></p>
+          <p><img src="assets/images/ic_(2).png" alt="Height Icon" class="icon"> Height: <span>{{ profile[0].height }}cm</span></p>
+          <p><img src="assets/images/ic_(3).png" alt="Education Icon" class="icon"> Education: <span>{{ profile[0].education }}</span></p>
+          <p><img src="assets/images/ic_(4).png" alt="Home Icon" class="icon"> Home Address: <span>{{ profile[0].houseName }},{{ profile[0].place }},{{ profile[0].district }},{{ profile[0].state }}</span></p>
         </div>
-
-        <!-- Two Additional Cards -->
-        <div class="additional-cards">
-
-            <!-- Other Info Card -->
-            <div class="other-info-card">
-                <h3>Other Info</h3>
-                <p>Fathers Name: </p>
-                <p>Mothers Name:</p>
-                <p>House Name: </p>
-                <p>Diocese: </p>
-                <p>Parish: </p>
-            </div>
-            <!-- Contact Info Card -->
-            <div class="contact-info-card">
-                <h3>Contact Info</h3>
-                <p><img src="assets/images/ic_(6).png" alt="Age Icon" class="icon"></p>
-                <p><img src="assets/images/ic_(5).png" alt="Age Icon" class="icon"></p>
-            </div>
-        </div>
+      </div>
     </div>
+    
+    <!-- Two Additional Cards -->
+    <div class="additional-cards" *ngIf="profile && profile.length > 0">
+
+      <!-- Other Info Card -->
+      <div class="other-info-card">
+        <h3>Other Info</h3>
+        <p>Fathers Name: {{ profile[0].fatherName }}</p>
+        <p>Mothers Name: {{ profile[0].motherName }}</p>
+        <p>House Name: {{ profile[0].houseName }}</p>
+        <p>Diocese: {{ profile[0].diocese }}</p>
+        <p>Parish: {{ profile[0].parish }}</p>
+      </div>
+      <!-- Contact Info Card -->
+      <div class="contact-info-card">
+        <h3>Contact Info</h3>
+        <p><img src="assets/images/ic_(6).png" alt="Age Icon" class="icon">+{{ profile[0].countryCode }} {{ profile[0].phone }}</p>
+        <p><img src="assets/images/ic_(5).png" alt="Age Icon" class="icon"> {{ profile[0].email }}</p>
+      </div>
+    </div>
+  </div>
 </div>
 <app-footer></app-footer>

@@ -21,6 +21,7 @@ export class DashboardComponent {
   profileCount: any;
   loggedInUserGender: any;
   loggedInUserStatus: any;
+  loggedInUserId: any;
 
   constructor(private ds: DataService, private router: Router) { }
 
@@ -32,9 +33,10 @@ export class DashboardComponent {
 
     const userData = JSON.parse(localStorage.getItem('gender') ?? '');
     const userStatus = JSON.parse(localStorage.getItem('isProfileApproved') ?? '');
+    const userId = JSON.parse(localStorage.getItem('currentUserId') ?? '');
     this.loggedInUserGender = userData;
     this.loggedInUserStatus = userStatus;
-    console.log(this.loggedInUserGender);
+    this.loggedInUserId = userId;
 
     if (this.loggedInUserStatus === 1) {
       this.ds.getProfilesUser(this.loggedInUserGender).subscribe((result: any) => {
