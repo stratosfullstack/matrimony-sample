@@ -29,7 +29,7 @@
                 <td>{{profile.gender}}</td>
                 <td>{{profile.age}}</td>
                 <td>{{ profile.country }}</td>
-                <td>{{profile.phone}}</td>
+                <td>+{{profile.countryCode}}{{profile.phone}}</td>
                 <td>
                     <button class="btn btn-download" (click)="downloadPdf(profile.pdfPath)">
                         <i class="download-icon"></i> Download

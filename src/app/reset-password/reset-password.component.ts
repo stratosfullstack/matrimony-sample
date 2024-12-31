@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { isPlatformBrowser } from '@angular/common';
@@ -19,6 +19,7 @@ export class ResetPasswordComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     private ds: DataService,
     private fb: FormBuilder,
+    private router:Router,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.resetPasswordForm = this.fb.group({
@@ -71,6 +72,8 @@ export class ResetPasswordComponent implements OnInit, AfterViewInit {
     this.newPassword = this.resetPasswordForm.value.password;
     this.ds.resetPassword(this.token, this.newPassword).subscribe(response => {
       console.log(response);
+      alert("Password reset successfully")
+      this.router.navigateByUrl('')
     });
   }
 }

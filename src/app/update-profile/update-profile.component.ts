@@ -1,7 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+
+interface Profile {
+  _id: string;
+  name: string;
+  age: number;
+  gender: string;
+  height: number;
+  country: string;
+  state: string;
+  district: string;
+  place: string;
+  education: string;
+  occupation: string;
+  imagePath: string;
+  countryCode: number;
+  phone: number;
+  email: number;
+  fatherName: string;
+  motherName: string;
+  parish: string;
+  diocese: string;
+  houseName: string;
+}
 
 @Component({
   selector: 'app-update-profile',
@@ -9,6 +33,10 @@ import { Router } from '@angular/router';
   styleUrl: './update-profile.component.css'
 })
 export class UpdateProfileComponent {
+
+  profile: Profile | null = null;
+  userId: any = '';
+  profileId: any ='';
 
   countryNames = [
     'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda',
@@ -282,7 +310,7 @@ export class UpdateProfileComponent {
 
   updateProfileForm: FormGroup;
 
-  constructor(private router: Router, private ds: DataService, private fb: FormBuilder) {
+  constructor(private router: Router, private ds: DataService, private fb: FormBuilder, private route: ActivatedRoute) {
     this.updateProfileForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       age: ['', [Validators.required, Validators.minLength(2)]],
@@ -301,9 +329,25 @@ export class UpdateProfileComponent {
       houseName: ['', [Validators.required]],
       fatherName: ['', [Validators.required]],
       motherName: ['', [Validators.required]],
-      profilePicture: ['', [Validators.required]],
-      idproof: ['', [Validators.required]],
     })
+  }
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((params) => {
+      this.profileId = params.get('id');
+      this.ds.viewProfile(this.profileId).subscribe({
+        next: (response) => {
+          this.profile = response.data;
+          if (this.profile) {
+            this.updateProfileForm.patchValue(this.profile);
+          }
+          console.log(this.profile);
+        },
+        error: (error) => {
+          console.error(error);
+        }
+      });
+    });
   }
 
   selectedImage: any;
@@ -314,6 +358,7 @@ export class UpdateProfileComponent {
     : null;
 
   email = this.storedData;
+  currentUserId = JSON.parse(localStorage.getItem('currentUserId') ?? '');
 
   onImageSelected(event: any) {
     this.selectedImage = event.target.files[0];
@@ -323,7 +368,7 @@ export class UpdateProfileComponent {
     this.selectedPdf = event.target.files[0];
   }
 
-  createProfile() {
+  updateProfile() {
     if (this.updateProfileForm.valid) {
       const formData = new FormData();
       formData.append('name', this.updateProfileForm.value.name);
@@ -345,9 +390,9 @@ export class UpdateProfileComponent {
       formData.append('fatherName', this.updateProfileForm.value.fatherName);
       formData.append('motherName', this.updateProfileForm.value.motherName);
       formData.append('image', this.selectedImage);
-      formData.append('pdf', this.selectedPdf);
-      this.ds.createProfile(formData).subscribe((result: any) => {
-        this.router.navigateByUrl('profilecreationsuccesspage')
+      this.ds.updateProfile(this.profileId,formData).subscribe((result: any) => {
+        alert('Profile Updated Successfully')
+        this.router.navigate(['view-my-profile', this.currentUserId])
       },
         result => {
           alert(result.error.message)

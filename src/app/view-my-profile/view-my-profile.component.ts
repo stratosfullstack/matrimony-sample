@@ -3,6 +3,7 @@ import { DataService } from '../services/data.service';
 import { ActivatedRoute } from '@angular/router';
 
 interface Profile {
+  _id: string;
   name: string;
   age: number;
   gender: string;

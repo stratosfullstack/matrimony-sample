@@ -3,66 +3,57 @@
     <div class="site-header">
         <h1 class="site-title">Edit Your Matrimony Profile</h1>
     </div>
-    <form id="matrimony-form" [formGroup]="updateProfileForm" (ngSubmit)="createProfile()">
+    <form id="matrimony-form" [formGroup]="updateProfileForm" (ngSubmit)="updateProfile()">
         <div class="form-columns">
             <div class="form-group">
-                <input type="text" class="form-control" id="name" formControlName="name" placeholder="Enter your Name">
+                <input type="text" class="form-control" id="name" formControlName="name" placeholder="Enter Your Name">
                 <div *ngIf="updateProfileForm.get('name')?.errors && updateProfileForm.get('name')?.touched"
                     class="error-message">
                     Name is required
                 </div>
             </div>
             <div class="form-group">
-                <input type="number" id="age" formControlName="age" placeholder="Age" class="form-control">
+                <input type="number" class="form-control" id="age" formControlName="age" placeholder="Age">
                 <div *ngIf="updateProfileForm.get('age')?.errors && updateProfileForm.get('age')?.touched"
                     class="error-message">
                     Age is required
                 </div>
             </div>
             <div class="form-group">
-                <select id="gender" formControlName="gender">
-                    <option value="">Gender</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select>
-                <div *ngIf="updateProfileForm.get('gender')?.errors && updateProfileForm.get('gender')?.touched"
-                    class="error-message">
-                    Gender is required
-                </div>
-            </div>
-            <div class="form-group">
-                <input type="number" class="form-control" id="height" formControlName="height" placeholder="Height">
+                <input type="number" class="form-control" id="age" id="height" formControlName="height"
+                    placeholder="Height">
                 <div *ngIf="updateProfileForm.get('height')?.errors && updateProfileForm.get('height')?.touched"
                     class="error-message">
                     Height is required
                 </div>
             </div>
             <div class="form-group">
-                <select id="country" formControlName="country">
-                    <option value="">Country</option>
-                    <option *ngFor="let country of countryNames" value="{{ country }}">{{ country }}</option>
-                </select>
+                    <select id="country" formControlName="country">
+                        <option value="">Country</option>
+                        <option *ngFor="let country of countryNames" value="{{ country }}">{{ country }}</option>
+                    </select>
                 <div *ngIf="updateProfileForm.get('country')?.errors && updateProfileForm.get('country')?.touched"
                     class="error-message">
                     Country is required
                 </div>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="state" formControlName="state" placeholder="State">
+                    <input type="text" class="form-control" id="state" formControlName="state" placeholder="State">
                 <div *ngIf="updateProfileForm.get('state')?.errors && updateProfileForm.get('state')?.touched"
                     class="error-message">
                     State is required
                 </div>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="district" formControlName="district" placeholder="District">
+                    <input type="text" class="form-control" id="district" formControlName="district"
+                        placeholder="District">
                 <div *ngIf="updateProfileForm.get('district')?.errors && updateProfileForm.get('district')?.touched"
                     class="error-message">
                     District is required
                 </div>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="place" formControlName="place" placeholder="Place">
+                    <input type="text" class="form-control" id="place" formControlName="place" placeholder="Place">
                 <div *ngIf="updateProfileForm.get('place')?.errors && updateProfileForm.get('place')?.touched"
                     class="error-message">
                     Place is required
@@ -84,78 +75,87 @@
                 </div>
             </div>
             <div class="form-group">
-                <select id="education" formControlName="education">
-                    <option value="">Highest Qualification</option>
-                    <option *ngFor="let education of educations" value="{{ education }}">{{ education }}</option>
-                </select>
+                <div *ngIf="profile">
+                    <select id="education" formControlName="education">
+                        <option value="">Highest Qualification</option>
+                        <option *ngFor="let education of educations" value="{{ education }}">{{ education }}</option>
+                    </select>
+                </div>
                 <div *ngIf="updateProfileForm.get('education')?.errors && updateProfileForm.get('education')?.touched"
                     class="error-message">
                     Highest Qualification is required
                 </div>
             </div>
             <div class="form-group">
-                <select id="occupation" formControlName="occupation">
-                    <option value="">Occupation</option>
-                    <option *ngFor="let occupation of occupations" value="{{ occupation }}">{{ occupation }}</option>
-                </select>
+                <div *ngIf="profile">
+                    <select id="occupation" formControlName="occupation">
+                        <option value="">Occupation</option>
+                        <option *ngFor="let occupation of occupations" value="{{ occupation }}">{{ occupation }}
+                        </option>
+                    </select>
+                </div>
                 <div *ngIf="updateProfileForm.get('occupation')?.errors && updateProfileForm.get('occupation')?.touched"
                     class="error-message">
                     Occupation is required
                 </div>
             </div>
             <div class="form-group">
-                <input type="text" id="diocese" formControlName="diocese" class="form-control"
-                    placeholder="Diocese Name">
+                <div *ngIf="profile">
+                    <input type="text" class="form-control" id="diocese" formControlName="diocese"
+                        placeholder="Diocese Name">
+                </div>
                 <div *ngIf="updateProfileForm.get('diocese')?.errors && updateProfileForm.get('diocese')?.touched"
                     class="error-message">
                     Diocese Name is required
                 </div>
             </div>
             <div class="form-group">
-                <input type="text" id="parish" formControlName="parish" class="form-control" placeholder="Parish Name">
+                <div *ngIf="profile">
+                    <input type="text" class="form-control" id="diocese" formControlName="parish"
+                        placeholder="Parish Name">
+                </div>
                 <div *ngIf="updateProfileForm.get('parish')?.errors && updateProfileForm.get('parish')?.touched"
                     class="error-message">
                     Parish Name is required
                 </div>
             </div>
             <div class="form-group">
-                <input type="text" id="house" formControlName="houseName" class="form-control" placeholder="House Name">
+                <div *ngIf="profile">
+                    <input type="text" class="form-control" id="house" formControlName="houseName"
+                        placeholder="House Name">
+                </div>
                 <div *ngIf="updateProfileForm.get('houseName')?.errors && updateProfileForm.get('houseName')?.touched"
                     class="error-message">
                     House Name is required
                 </div>
             </div>
             <div class="form-group">
-                <input type="text" id="father-name" formControlName="fatherName" class="form-control"
-                    placeholder="Father's Name">
+                <div *ngIf="profile">
+                    <input type="text" class="form-control" id="father-name" formControlName="fatherName"
+                        placeholder="Father's Name">
+                </div>
                 <div *ngIf="updateProfileForm.get('fatherName')?.errors && updateProfileForm.get('fatherName')?.touched"
                     class="error-message">
                     Father's Name is required
                 </div>
             </div>
             <div class="form-group">
-                <input type="text" id="mother-name" formControlName="motherName" class="form-control"
-                    placeholder="Mother's Name">
+                <div *ngIf="profile">
+                    <input type="text" class="form-control" id="mother-name" formControlName="motherName"
+                        placeholder="Mother's Name">
+                </div>
                 <div *ngIf="updateProfileForm.get('motherName')?.errors && updateProfileForm.get('motherName')?.touched"
                     class="error-message">
                     Mother's Name is required
                 </div>
             </div>
             <div class="form-group">
-                <label for="pdf">Profile Picture</label>
+                <label for="pdf">Update Profile Picture</label>
                 <input type="file" id="profile-picture" formControlName="profilePicture"
                     (change)="onImageSelected($event)" required>
                 <div *ngIf="updateProfileForm.get('profilePicture')?.errors && updateProfileForm.get('profilePicture')?.touched"
                     class="error-message">
                     Profile Picture is required
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="pdf">ID Proof</label>
-                <input type="file" id="pdf" (change)="onPdfSelected($event)" accept=".pdf" formControlName="idproof">
-                <div *ngIf="updateProfileForm.get('idproof')?.errors && updateProfileForm.get('idproof')?.touched"
-                    class="error-message">
-                    ID Proof is required
                 </div>
             </div>
         </div>

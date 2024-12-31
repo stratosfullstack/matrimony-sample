@@ -7,18 +7,27 @@
         <img *ngIf="profile[0].imagePath" [src]="getImageUrl(profile[0].imagePath)" alt="Profile Photo">
       </div>
       <div class="profile-details">
-        <h2>{{ profile[0].name }}</h2>
+        <h2>
+          {{ profile[0].name }}
+          <button class="nav-button">
+            <a [routerLink]="['/update-profile',profile[0]._id]" class="nav-link">Edit Profile</a>
+          </button>
+        </h2>
         <p class="designation">{{ profile[0].occupation }} | {{ profile[0].country }}</p>
 
         <div class="main-details">
-          <p><img src="assets/images/ic_(1).png" alt="Age Icon" class="icon"> Age: <span>{{ profile[0].age }} Years</span></p>
-          <p><img src="assets/images/ic_(2).png" alt="Height Icon" class="icon"> Height: <span>{{ profile[0].height }}cm</span></p>
-          <p><img src="assets/images/ic_(3).png" alt="Education Icon" class="icon"> Education: <span>{{ profile[0].education }}</span></p>
-          <p><img src="assets/images/ic_(4).png" alt="Home Icon" class="icon"> Home Address: <span>{{ profile[0].houseName }},{{ profile[0].place }},{{ profile[0].district }},{{ profile[0].state }}</span></p>
+          <p><img src="assets/images/ic_(1).png" alt="Age Icon" class="icon"> Age: <span>{{ profile[0].age }}
+              Years</span></p>
+          <p><img src="assets/images/ic_(2).png" alt="Height Icon" class="icon"> Height: <span>{{ profile[0].height
+              }}cm</span></p>
+          <p><img src="assets/images/ic_(3).png" alt="Education Icon" class="icon"> Education: <span>{{
+              profile[0].education }}</span></p>
+          <p><img src="assets/images/ic_(4).png" alt="Home Icon" class="icon"> Home Address: <span>{{
+              profile[0].houseName }},{{ profile[0].place }},{{ profile[0].district }},{{ profile[0].state }}</span></p>
         </div>
       </div>
     </div>
-    
+
     <!-- Two Additional Cards -->
     <div class="additional-cards" *ngIf="profile && profile.length > 0">
 
@@ -34,7 +43,8 @@
       <!-- Contact Info Card -->
       <div class="contact-info-card">
         <h3>Contact Info</h3>
-        <p><img src="assets/images/ic_(6).png" alt="Age Icon" class="icon">+{{ profile[0].countryCode }} {{ profile[0].phone }}</p>
+        <p><img src="assets/images/ic_(6).png" alt="Age Icon" class="icon">+{{ profile[0].countryCode }} {{
+          profile[0].phone }}</p>
         <p><img src="assets/images/ic_(5).png" alt="Age Icon" class="icon"> {{ profile[0].email }}</p>
       </div>
     </div>

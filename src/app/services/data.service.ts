@@ -32,6 +32,10 @@ export class DataService {
     return this.http.post("http://localhost:3000/create-profile", formData)
   }
 
+  updateProfile(profileId: string, formData: FormData) {
+    return this.http.patch(`http://localhost:3000/update-profile/${profileId}`, formData);
+  }
+
   getProfiles() {
     return this.http.get("http://localhost:3000/get-profiles").pipe(
       catchError((error: any) => {

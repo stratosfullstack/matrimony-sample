@@ -8,6 +8,7 @@ interface Profile {
   age: number;
   gender: string;
   country: string;
+  countryCode: number;
   phone: number;
   imagePath: string;
   pdfPath: string;
