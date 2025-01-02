@@ -13,6 +13,7 @@ import { RegSuccessPageComponent } from './reg-success-page/reg-success-page.com
 import { ProfileCreateSuccessPageComponent } from './profile-create-success-page/profile-create-success-page.component';
 import { ViewMyProfileComponent } from './view-my-profile/view-my-profile.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { EmailVerificationPageComponent } from './email-verification-page/email-verification-page.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -20,8 +21,10 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'registrationsuccesspage', component: RegSuccessPageComponent },
+  { path: 'email-verification', component: EmailVerificationPageComponent },
 
-  { path: 'profilecreationsuccesspage',
+  {
+    path: 'profilecreationsuccesspage',
     component: ProfileCreateSuccessPageComponent,
     canActivate: [AuthGuard],
     data: { role: 0 }
